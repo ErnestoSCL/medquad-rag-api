@@ -1,0 +1,8 @@
+# Dependencias solo para desarrollo y pruebas. No se instalan en la imagen.
+#
+# Los tests unitarios corren con esto solo: `app/guardrails.py` no importa nada
+# externo. Los de integración hablan con el contenedor por HTTP, y necesitan
+# además `supabase` para verificar la persistencia del historial.
+-r requirements.txt
+pytest
+httpx

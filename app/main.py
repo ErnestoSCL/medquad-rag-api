@@ -3,6 +3,11 @@ import gradio as gr
 
 from app.schemas import AskRequest, AskResponse
 from app.rag_chain import answer_question
+from app.memory import (
+    cargar_historial,
+    guardar_interaccion,
+    nuevo_session_id,
+)
 from app.guardrails import (
     apply_guardrails,
     apply_clinical_guardrails,
@@ -22,10 +27,14 @@ def ask(payload: AskRequest):
             citations=[],
         )
 
+    session_id = payload.session_id
+    historial = cargar_historial(session_id) if session_id else []
+
     # Se usa search_question (PII eliminado), no safe_question (PII sustituido
     # por placeholders): los placeholders degradan tanto la búsqueda como la
     # generación. safe_question queda disponible en `guard` para logs.
-    raw_answer, docs = answer_question(guard["search_question"])
+    pregunta_limpia = guard["search_question"]
+    raw_answer, docs, consulta = answer_question(pregunta_limpia, historial)
 
     is_toxic, terms = contains_toxicity(raw_answer)
     if is_toxic:
@@ -46,21 +55,73 @@ def ask(payload: AskRequest):
         frag = f" (fragmento {m['chunk_id'] + 1} de {m['n_chunks']})" if m.get("n_chunks", 1) > 1 else ""
         citations.append(f"[{m.get('document_source')}] {m.get('question_focus')}{frag} — {m.get('document_url')}")
 
-    return AskResponse(answer=final_answer, citations=citations)
+    # Se guarda la pregunta ya sin PII: el historial vive en la base de datos y
+    # no debe contener datos personales.
+    if session_id:
+        guardar_interaccion(session_id, pregunta_limpia, final_answer)
+
+    return AskResponse(answer=final_answer, citations=citations, search_query=consulta)
 
 
-# --- Interfaz Gradio, montada sobre el mismo FastAPI ---
-def gradio_ask(question):
-    result = ask(AskRequest(question=question))
-    sources_md = "\n".join(f"- {c}" for c in result.citations) or "_(sin fuentes)_"
-    return result.answer, sources_md
+# --- Interfaz Gradio (vista de chat), montada sobre el mismo FastAPI ---
+
+def responder_chat(mensaje, history, session_id):
+    """
+    `history` lo administra Gradio para pintar la conversación; la fuente de
+    verdad del backend es Supabase, que se consulta dentro de /ask con el
+    session_id. Así el historial sobrevive a un refresco de la página.
+    """
+    resultado = ask(AskRequest(question=mensaje, session_id=session_id))
+
+    respuesta = resultado.answer
+    if resultado.citations:
+        fuentes = "\n".join(f"- {c}" for c in resultado.citations)
+        respuesta += f"\n\n---\n**Fuentes:**\n{fuentes}"
+    return respuesta
 
 
-demo = gr.Interface(
-    fn=gradio_ask,
-    inputs=gr.Textbox(label="Tu pregunta médica", placeholder="Ej: What are the symptoms of Bell's palsy?"),
-    outputs=[gr.Textbox(label="Respuesta"), gr.Markdown(label="Fuentes")],
-    title="🩺 Asistente Médico RAG — MedQuAD",
-)
+def asegurar_session_id(session_id):
+    """
+    Genera el identificador la primera vez que alguien abre la página.
+
+    Vive en gr.BrowserState, o sea en el localStorage del navegador: sobrevive
+    a recargas y distingue usuarios sin recurrir a la IP, que detrás de un NAT
+    es la misma para toda una red y además es un dato personal.
+    """
+    return session_id or nuevo_session_id()
+
+
+with gr.Blocks(title="Asistente Médico RAG — MedQuAD") as demo:
+    session_state = gr.BrowserState(None, storage_key="medquad_session_id")
+
+    gr.Markdown(
+        "# 🩺 Asistente Médico RAG — MedQuAD\n"
+        "Preguntá en español sobre síntomas, tratamientos o enfermedades. "
+        "Las respuestas se basan únicamente en el corpus MedQuAD de los "
+        "Institutos Nacionales de Salud de EE. UU., y se citan las fuentes.\n\n"
+        "Recuerda las últimas 3 interacciones, así que podés repreguntar: "
+        "*«¿Qué es la parálisis de Bell?»* y luego *«¿y cómo se trata?»*.\n\n"
+        "Ejemplos: ¿Cuáles son los síntomas de la parálisis de Bell? · "
+        "¿Cómo se trata el asma? · ¿Qué causa los dolores de cabeza? · "
+        "¿Qué es la enfermedad de Wilson?\n\n"
+        "*Herramienta con fines educativos. No sustituye el criterio de un "
+        "profesional médico colegiado.*"
+    )
+
+    # Sin `examples`: ChatInterface los exige como listas de listas cuando hay
+    # additional_inputs, lo que obligaría a fijar session_id=None en cada
+    # ejemplo y dejaría esas consultas sin memoria. Van arriba como texto.
+    gr.ChatInterface(
+        fn=responder_chat,
+        additional_inputs=[session_state],
+        textbox=gr.Textbox(
+            placeholder="Escribí tu pregunta médica…",
+            show_label=False,
+            autofocus=True,
+        ),
+    )
+
+    # Al cargar la página se asegura que exista un session_id persistente.
+    demo.load(asegurar_session_id, inputs=[session_state], outputs=[session_state])
 
 app = gr.mount_gradio_app(app, demo, path="/")
