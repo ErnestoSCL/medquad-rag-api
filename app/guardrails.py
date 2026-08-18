@@ -4,11 +4,18 @@ import re
 # Guardrail 1 — Protección de PII (regex)
 # ============================================================
 
+# Los usuarios preguntan en español, pero la consulta interna se traduce al
+# inglés antes de buscar (ver rag_chain.reformular). Por eso los guardrails
+# cubren AMBOS idiomas en vez de reemplazar el inglés por español: los patrones
+# en español protegen la entrada del usuario, los de inglés siguen cubriendo la
+# API y el texto que circula internamente.
 PII_PATTERNS = {
     'email'    : re.compile(r'[\w\.-]+@[\w\.-]+\.\w+'),
     'telefono' : re.compile(r'(\+?\d{1,3}[\s.-]?)?\(?\d{2,4}\)?[\s.-]?\d{3,4}[\s.-]?\d{3,4}'),
+    # El nombre admite acentos y ñ: "Soy José Martínez", "me llamo Iñaki".
     'nombre'   : re.compile(
-        r'\b(?:my name is|i am|i\'m|soy|me llamo)\s+([A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+)?)',
+        r'\b(?:my name is|i am|i\'m|soy|me llamo|mi nombre es)\s+'
+        r'([A-ZÁÉÍÓÚÑ][a-záéíóúñü]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñü]+)?)',
         flags=re.IGNORECASE
     ),
 }
@@ -72,6 +79,7 @@ def strip_pii(text):
 # ============================================================
 
 INJECTION_PATTERNS = [
+    # --- inglés ---
     r'ignore (all |the )?(previous|above|prior) instructions',
     r'disregard (the |your )?(system prompt|instructions|rules)',
     r'you are now',
@@ -82,6 +90,22 @@ INJECTION_PATTERNS = [
     r'override (your |the )?(rules|guidelines|instructions)',
     r'pretend (you are|to be)',
     r'reveal your (system )?prompt',
+    # --- español ---
+    # Se aceptan variantes con y sin tilde: quien intenta una inyección no
+    # necesariamente escribe con ortografía correcta.
+    r'ignora (todas )?(las )?(instrucciones|reglas|indicaciones)',
+    r'olvida (todo|lo anterior|las instrucciones|tus instrucciones)',
+    r'haz caso omiso (de|a) (las |tus )?(instrucciones|reglas)',
+    r'no sigas (las |tus )?(instrucciones|reglas)',
+    r'ahora eres',
+    r'a partir de ahora (eres|ser[áa]s|act[úu]a)',
+    r'act[úu]a como (si|un|una)',
+    r'finge (que |ser )',
+    r'compórtate como',
+    r'nuevas instrucciones\s*:',
+    r'sistema\s*:\s*(debes|tienes que)',
+    r'(revela|mu[ée]strame|dime) (tu|el) (prompt|system prompt|mensaje de sistema)',
+    r'anula (tus|las) (reglas|instrucciones|directrices)',
 ]
 
 INJECTION_REGEX = re.compile('|'.join(INJECTION_PATTERNS), flags=re.IGNORECASE)
@@ -100,25 +124,52 @@ def detect_prompt_injection(text):
 # Guardrail 3 — Filtro de sesgos y toxicidad (lista de términos)
 # ============================================================
 
-# Lista breve e ilustrativa de términos ofensivos/discriminatorios en inglés
-# (el corpus y el LLM operan en inglés). En un sistema productivo esta lista
-# se ampliaría y se mantendría en un archivo de configuración versionado.
+# Lista breve e ilustrativa de términos ofensivos/discriminatorios. En un
+# sistema productivo se ampliaría y se mantendría en un archivo de
+# configuración versionado, o se delegaría a un clasificador.
+#
+# Cubre los dos idiomas: el usuario escribe en español, pero la respuesta del
+# LLM y la query interna viajan en inglés, y este mismo filtro se aplica a la
+# respuesta generada (ver main.py).
 TOXIC_TERMS = {
+    # --- inglés ---
     'idiot', 'stupid', 'retard', 'retarded', 'moron',
     'kill yourself', 'kys',
-    # términos discriminatorios genéricos de ejemplo — lista no exhaustiva
     'subhuman', 'inferior race',
+    # --- español ---
+    'idiota', 'estúpido', 'estupido', 'estúpida', 'estupida',
+    'imbécil', 'imbecil', 'retrasado', 'retrasada', 'subnormal',
+    'tarado', 'tarada', 'mongólico', 'mongolico',
+    'matate', 'mátate', 'suicídate', 'suicidate',
+    'infrahumano', 'raza inferior',
+}
+
+# Términos que exigen palabra completa para no producir falsos positivos con
+# vocabulario clínico legítimo. Sin esto, "tarado" dispararía dentro de
+# "retardado" y "retard" dentro de "retardation", que aparece en el corpus
+# médico en inglés como término técnico.
+TOXIC_WORD_BOUNDED = {
+    'retard', 'retarded', 'tarado', 'tarada', 'retrasado', 'retrasada',
 }
 
 
 def contains_toxicity(text):
     """
-    Búsqueda simple de términos ofensivos/discriminatorios, sobre el texto
-    en minúsculas. Devuelve (bool, lista_de_términos_encontrados).
+    Búsqueda de términos ofensivos/discriminatorios sobre el texto en
+    minúsculas. Devuelve (bool, lista_de_términos_encontrados).
+
+    Los términos de TOXIC_WORD_BOUNDED se buscan como palabra completa, porque
+    aparecen como subcadena dentro de vocabulario médico legítimo.
     """
     text_lower = text.lower()
-    found = [term for term in TOXIC_TERMS if term in text_lower]
-    return (len(found) > 0, found)
+    found = []
+    for term in TOXIC_TERMS:
+        if term in TOXIC_WORD_BOUNDED:
+            if re.search(rf'\b{re.escape(term)}\b', text_lower):
+                found.append(term)
+        elif term in text_lower:
+            found.append(term)
+    return (len(found) > 0, sorted(found))
 
 
 # ============================================================
@@ -127,31 +178,42 @@ def contains_toxicity(text):
 # ============================================================
 
 CLINICAL_DISCLAIMER = (
-    "*Note: This information is for educational purposes only and does not "
-    "replace the judgment of a licensed physician.*"
+    "*Nota: esta información tiene fines educativos y no sustituye el criterio "
+    "de un profesional médico colegiado.*"
 )
 
 INSUFFICIENT_INFO_MSG = (
-    "Insufficient information in the reference material. Immediate referral "
-    "to a specialist for clinical examination is recommended."
+    "No hay información suficiente en el material de referencia. Se recomienda "
+    "acudir a un especialista para una evaluación clínica."
+)
+
+
+# Formas de abstención que hay que reconocer. El LLM responde en español, pero
+# el marcador interno de "sin contexto" que devuelve rag_chain.answer_question
+# sigue siendo "I don't know", y el modelo puede recaer en inglés, así que se
+# cubren ambos idiomas.
+NO_ANSWER_MARKERS = (
+    "i don't know",
+    "i do not know",
+    "no lo sé",
+    "no lo se",
+    "no tengo información",
+    "no tengo informacion",
+    "no puedo responder",
 )
 
 
 def apply_clinical_guardrails(answer):
     """
     Envuelve la respuesta cruda del LLM con los guardrails clínicos:
-      - Si el modelo no encontró la respuesta en el contexto (responde
-        "I don't know" o algo vacío), la reemplaza por el mensaje estándar
-        de información insuficiente.
+      - Si el modelo no encontró la respuesta en el contexto, la reemplaza por
+        el mensaje estándar de información insuficiente.
       - Agrega siempre el disclaimer obligatorio al final.
     """
     answer_clean = answer.strip()
+    lower = answer_clean.lower()
 
-    no_answer = (
-        not answer_clean
-        or "i don't know" in answer_clean.lower()
-        or "i do not know" in answer_clean.lower()
-    )
+    no_answer = not answer_clean or any(m in lower for m in NO_ANSWER_MARKERS)
     body = INSUFFICIENT_INFO_MSG if no_answer else answer_clean
 
     return f"{body}\n\n{CLINICAL_DISCLAIMER}"

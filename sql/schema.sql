@@ -71,3 +71,31 @@ as $$
   order by embedding <=> query_embedding
   limit match_count;
 $$;
+
+
+-- ------------------------------------------------------------
+-- Historial de conversación (memoria por sesión)
+--
+-- `session_id` es un UUID que el navegador guarda en localStorage
+-- (gr.BrowserState), NO la IP. Detrás de un NAT todos los usuarios de una red
+-- comparten IP pública —en una demo con varios evaluadores en el mismo wifi
+-- compartirían historial—, cambia si es dinámica, en Render llega la del proxy
+-- y no la del usuario, y además es un dato personal: guardarla sería
+-- incoherente con tener un guardrail que enmascara PII.
+--
+-- El `content` del rol 'user' se guarda ya sin PII (guardrails.strip_pii).
+-- ------------------------------------------------------------
+create table chat_history (
+  id bigserial primary key,
+  session_id text not null,
+  role text not null check (role in ('user', 'assistant')),
+  content text not null,
+  created_at timestamptz not null default now()
+);
+
+-- La consulta de cada turno es "últimos N mensajes de esta sesión".
+create index chat_history_session_idx on chat_history (session_id, created_at desc);
+
+-- Retención: el historial crece sin límite y el free tier son 0.5 GB. Con la
+-- base al 49% no es urgente, pero conviene purgar cada tanto:
+--   delete from chat_history where created_at < now() - interval '30 days';
