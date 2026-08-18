@@ -3,10 +3,24 @@ from openai import OpenAI
 from supabase import create_client
 import os
 
+# text-embedding-3-small produce 1536 dimensiones por defecto, pero admite
+# truncarlo con `dimensions` (Matryoshka). Se usan 512: los 38,127 vectores
+# pasan de ~223 MB a ~78 MB —y su índice ivfflat de ~300 MB a ~80 MB—, lo que
+# mantiene el proyecto dentro del free tier de Supabase (0.5 GB) a cambio de
+# ~1% de calidad en MTEB. Debe coincidir con vector(512) en sql/schema.sql y
+# con OpenAIEmbeddings(dimensions=...) en app/rag_chain.py.
+EMBEDDING_MODEL = "text-embedding-3-small"
+EMBEDDING_DIMENSIONS = 512
+
+# Permite ingestar a una tabla intermedia durante una migración, sin tocar la
+# tabla en uso: INGEST_TABLE=documents_512 python scripts/ingest_to_supabase.py
+TABLE = os.environ.get("INGEST_TABLE", "documents")
+
 openai_client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 supabase = create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_KEY"])
 
 df = pd.read_parquet("df_chunks_B_512.parquet")
+print(f"Ingestando {len(df)} chunks a `{TABLE}` con {EMBEDDING_DIMENSIONS} dimensiones")
 
 BATCH = 100
 for start in range(0, len(df), BATCH):
@@ -21,7 +35,11 @@ for start in range(0, len(df), BATCH):
         f"{row.question}\n{row.chunk_text}" for row in batch.itertuples()
     ]
 
-    resp = openai_client.embeddings.create(model="text-embedding-3-small", input=texts_to_embed)
+    resp = openai_client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=texts_to_embed,
+        dimensions=EMBEDDING_DIMENSIONS,
+    )
     vectors = [d.embedding for d in resp.data]
 
     rows = [
@@ -40,7 +58,7 @@ for start in range(0, len(df), BATCH):
         }
         for row, vec in zip(batch.itertuples(), vectors)
     ]
-    supabase.table("documents").insert(rows).execute()
+    supabase.table(TABLE).insert(rows).execute()
     print(f"Insertados {start + len(batch)}/{len(df)}")
 
 print("Ingesta completa.")

@@ -4,7 +4,10 @@ from supabase import create_client
 
 from app.config import SUPABASE_URL, SUPABASE_KEY
 
-embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+# `dimensions` debe coincidir con vector(512) en sql/schema.sql y con
+# EMBEDDING_DIMENSIONS en scripts/ingest_to_supabase.py: si las tres no están
+# alineadas, pgvector rechaza la consulta por dimensión incompatible.
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small", dimensions=512)
 supabase_client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 vector_store = SupabaseVectorStore(
