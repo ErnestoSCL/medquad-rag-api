@@ -32,29 +32,42 @@ TOP_K = 5
 # fijo perdería resultados buenos. Lo que sí distingue es la caída respecto al
 # mejor de la propia consulta.
 #
-# El ruido aparece cuando el tema tiene pocos chunks en el corpus y pedir k=5
-# obliga a rellenar: "Caffey disease" tiene 1 solo chunk, así que los otros 4
-# eran relleno que además se mostraba al usuario como fuentes citadas.
+# QUÉ HACE Y QUÉ NO, según la evaluación con LLM-as-judge (ver eval/judge.py):
+# no es el mecanismo que garantiza la calidad de las citas — de eso se encarga
+# el reranker, que por sí solo deja 0% de chunks inútiles. Con reranker activo,
+# quitar este corte da prácticamente el mismo resultado (42 chunks útiles vs 41,
+# 0% inútiles en ambos casos).
 #
-# Medido sobre 12 consultas (60 chunks): descarta 11 de 12 irrelevantes sin
-# perder ninguno de los 48 relevantes. Precisión 90% -> 98%, sin llamadas
-# extra ni latencia. Se aplica antes del reranking, para no gastarle tokens en
-# candidatos que ya se sabe que están lejos.
+# Se mantiene por dos razones que el reranker no cubre:
+#   · Acota su entrada. Sin el corte el reranker recibe los 20 candidatos
+#     completos (~2000 tokens) en vez de los 5-10 que sobreviven, lo que agrega
+#     latencia y costo a cada consulta.
+#   · Es determinista. El reranker es un LLM y puede variar aun con
+#     temperature=0; este filtro es aritmética pura y siempre descarta lo mismo.
+#
+# Sin reranker (RERANK_ENABLED = False) sí pasa a ser el filtro principal, y ahí
+# su aporte es grande: reduce los chunks inútiles del 28% al 12%.
 RELATIVE_CUTOFF = 0.80
 
 # Reranking con LLM: se recuperan RERANK_CANDIDATES por similitud y el modelo
 # elige cuáles pasan al contexto, hasta TOP_K.
 #
-# Medición honesta de su aporte: sobre 12 consultas, solo 1 mejoraba al ampliar
-# el pool de 5 a 20 candidatos (+1 chunk). Donde el corpus tiene material de
-# sobra el top-5 ya venía completo, y donde el top-5 tenía huecos era porque no
-# existen más chunks del tema.
+# Es el mecanismo que realmente controla la calidad de las citas. Evaluado con
+# LLM-as-judge sobre 15 preguntas (ver eval/judge.py), juzgando el CONTENIDO de
+# cada chunk y no su etiqueta:
 #
-# Se mantiene activo porque aporta algo que el corte relativo no puede dar:
-# juzga relevancia semántica, no solo distancia vectorial — afina las citas
-# (Bell's palsy pasa de 5 fuentes a 3, todas del tema). Costo real medido:
-# +0.4 s por consulta (1.8 s -> 2.2 s). Para desactivarlo basta con
-# RERANK_ENABLED = False; el pipeline vuelve a similitud + corte relativo.
+#   configuración          citas   útiles   inútiles
+#   solo similitud            75      51%       28%
+#   + corte relativo          64      59%       12%
+#   + reranking               51      80%        0%
+#
+# Elimina por completo los chunks inútiles, algo que el corte relativo por sí
+# solo no logra, porque distingue utilidad de pertenencia temática: un fragmento
+# sobre el tratamiento de Bell's palsy es del tema correcto pero no sirve para
+# responder por los síntomas, y el reranker lo descarta.
+#
+# Costo medido: +0.4 s por consulta (1.8 s -> 2.2 s). Para desactivarlo basta
+# con RERANK_ENABLED = False; el pipeline vuelve a similitud + corte relativo.
 RERANK_ENABLED = True
 RERANK_CANDIDATES = 20
 
@@ -148,8 +161,8 @@ def answer_question(question: str):
     k = RERANK_CANDIDATES if RERANK_ENABLED else TOP_K
     scored = vector_store.similarity_search_with_relevance_scores(question, k=k)
 
-    # Corte relativo primero: descarta lo que está claramente lejos del mejor
-    # resultado, para no gastar tokens del reranker en candidatos malos.
+    # Corte relativo primero: acota la entrada del reranker (ver arriba por qué
+    # sigue acá aunque no sea lo que decide la calidad).
     if scored:
         best = scored[0][1]
         scored = [(doc, s) for doc, s in scored if s >= RELATIVE_CUTOFF * best]
