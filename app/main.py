@@ -3,7 +3,12 @@ import gradio as gr
 
 from app.schemas import AskRequest, AskResponse
 from app.rag_chain import answer_question
-from app.guardrails import apply_guardrails, apply_clinical_guardrails, contains_toxicity
+from app.guardrails import (
+    apply_guardrails,
+    apply_clinical_guardrails,
+    contains_toxicity,
+    INSUFFICIENT_INFO_MSG,
+)
 
 app = FastAPI(title="Asistente Médico RAG API")
 
@@ -27,6 +32,13 @@ def ask(payload: AskRequest):
         final_answer = f"Respuesta bloqueada por el filtro de toxicidad (términos: {terms})."
     else:
         final_answer = apply_clinical_guardrails(raw_answer)
+
+    # Si el modelo no encontró la respuesta, los chunks recuperados no
+    # respaldan nada: mostrarlos como fuentes sería contradictorio. Pasa con
+    # preguntas ajenas al corpus, donde el corte relativo de rag_chain no
+    # filtra nada porque todos los resultados son igual de malos.
+    if final_answer.startswith(INSUFFICIENT_INFO_MSG):
+        docs = []
 
     citations = []
     for d in docs:
