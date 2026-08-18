@@ -17,7 +17,7 @@ def ask(payload: AskRequest):
             citations=[],
         )
 
-    raw_answer, docs = answer_question(guard["safe_question"])
+    raw_answer, docs = answer_question(guard["safe_question"], guard["search_question"])
 
     is_toxic, terms = contains_toxicity(raw_answer)
     if is_toxic:

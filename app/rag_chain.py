@@ -23,8 +23,14 @@ SYSTEM_PROMPT = (
 )
 
 
-def answer_question(question: str):
-    docs = retriever.invoke(question)
+def answer_question(question: str, search_question: str | None = None):
+    """
+    `question` es la que ve el LLM; `search_question` la que se embeddea para
+    buscar. Se separan porque el enmascarado de PII deja placeholders que
+    degradan la recuperación (ver guardrails.strip_pii). Si no se pasa la
+    segunda, se busca con la primera.
+    """
+    docs = retriever.invoke(search_question or question)
     context = "\n\n".join(d.page_content for d in docs)
     response = llm.invoke([
         {"role": "system", "content": SYSTEM_PROMPT},

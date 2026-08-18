@@ -34,6 +34,34 @@ def mask_pii(text):
     return masked, detections
 
 
+def strip_pii(text):
+    """
+    Igual que mask_pii, pero ELIMINA el PII en vez de sustituirlo por un
+    placeholder. Se usa solo para la búsqueda vectorial.
+
+    Por qué existe: los placeholders tipo `[NOMBRE_OCULTO]` son tokens sin
+    significado que diluyen el embedding de la pregunta y empeoran la
+    recuperación. Medido sobre "My name is John Smith, what causes my
+    headaches?", la mejor similitud cae de 0.538 (sin PII) a 0.483 (con
+    placeholder), y los chunks relevantes en el top-5 bajan de 3 a 1 — peor,
+    incluso, que no haber enmascarado nada.
+
+    El texto que ve el LLM sigue siendo el de mask_pii: acá no se relaja la
+    protección, solo se evita que el placeholder contamine la búsqueda.
+    """
+    stripped = text
+    for pattern in PII_PATTERNS.values():
+        stripped = pattern.sub('', stripped)
+
+    # Limpia lo que deja la eliminación: espacios dobles, espacio antes de
+    # puntuación, y puntuación huérfana al inicio ("...Smith, what causes"
+    # queda como ", what causes" -> "what causes").
+    stripped = re.sub(r'\s{2,}', ' ', stripped)
+    stripped = re.sub(r'\s+([,.;:!?])', r'\1', stripped)
+    stripped = re.sub(r'^[\s,;:.]+', '', stripped)
+    return stripped.strip()
+
+
 # ============================================================
 # Guardrail 2 — Defensa contra prompt injection
 # ============================================================
@@ -138,10 +166,12 @@ def apply_guardrails(question):
 
     Devuelve un dict:
       {
-        'allowed'        : bool,
-        'reason'         : str o None,
-        'safe_question'  : la pregunta a usar en el pipeline (enmascarada si aplica),
-        'pii_detections' : dict de detecciones de PII (vacío si no hubo),
+        'allowed'         : bool,
+        'reason'          : str o None,
+        'safe_question'   : la pregunta enmascarada — es la que ve el LLM,
+        'search_question' : la pregunta sin PII — es la que se embeddea para
+                            buscar (ver strip_pii sobre por qué difieren),
+        'pii_detections'  : dict de detecciones de PII (vacío si no hubo),
       }
     """
     if detect_prompt_injection(question):
@@ -149,6 +179,7 @@ def apply_guardrails(question):
             'allowed': False,
             'reason': 'prompt_injection_detected',
             'safe_question': None,
+            'search_question': None,
             'pii_detections': {},
         }
 
@@ -158,6 +189,7 @@ def apply_guardrails(question):
             'allowed': False,
             'reason': f'toxicity_detected: {toxic_terms}',
             'safe_question': None,
+            'search_question': None,
             'pii_detections': {},
         }
 
@@ -167,5 +199,6 @@ def apply_guardrails(question):
         'allowed': True,
         'reason': None,
         'safe_question': safe_question,
+        'search_question': strip_pii(question),
         'pii_detections': pii_found,
     }
