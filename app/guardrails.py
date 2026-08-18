@@ -37,17 +37,22 @@ def mask_pii(text):
 def strip_pii(text):
     """
     Igual que mask_pii, pero ELIMINA el PII en vez de sustituirlo por un
-    placeholder. Se usa solo para la búsqueda vectorial.
+    placeholder. Es la versión que se usa en el pipeline (búsqueda y LLM).
 
     Por qué existe: los placeholders tipo `[NOMBRE_OCULTO]` son tokens sin
-    significado que diluyen el embedding de la pregunta y empeoran la
-    recuperación. Medido sobre "My name is John Smith, what causes my
-    headaches?", la mejor similitud cae de 0.538 (sin PII) a 0.483 (con
-    placeholder), y los chunks relevantes en el top-5 bajan de 3 a 1 — peor,
-    incluso, que no haber enmascarado nada.
+    significado que perjudican las dos etapas.
 
-    El texto que ve el LLM sigue siendo el de mask_pii: acá no se relaja la
-    protección, solo se evita que el placeholder contamine la búsqueda.
+      · Búsqueda — diluyen el embedding. Medido sobre "My name is John Smith,
+        what causes my headaches?", la mejor similitud cae de 0.538 (sin PII)
+        a 0.483 (con placeholder) y los chunks relevantes en el top-5 bajan de
+        3 a 1 — peor, incluso, que no haber enmascarado nada.
+      · Generación — con el placeholder en la pregunta, gpt-4o-mini se abstiene
+        ("I don't know") aun teniendo la respuesta en el contexto.
+
+    No se relaja la protección: eliminar es al menos tan seguro como sustituir,
+    y el PII no llega ni a la base vectorial ni al LLM. La versión enmascarada
+    de mask_pii sigue disponible en `apply_guardrails` para logs y auditoría,
+    junto con el detalle de qué se detectó.
     """
     stripped = text
     for pattern in PII_PATTERNS.values():
@@ -168,9 +173,9 @@ def apply_guardrails(question):
       {
         'allowed'         : bool,
         'reason'          : str o None,
-        'safe_question'   : la pregunta enmascarada — es la que ve el LLM,
-        'search_question' : la pregunta sin PII — es la que se embeddea para
-                            buscar (ver strip_pii sobre por qué difieren),
+        'safe_question'   : la pregunta enmascarada — solo para logs/auditoría,
+        'search_question' : la pregunta sin PII — la que usa el pipeline, tanto
+                            para buscar como para el LLM (ver strip_pii),
         'pii_detections'  : dict de detecciones de PII (vacío si no hubo),
       }
     """

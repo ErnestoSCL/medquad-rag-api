@@ -17,7 +17,10 @@ def ask(payload: AskRequest):
             citations=[],
         )
 
-    raw_answer, docs = answer_question(guard["safe_question"], guard["search_question"])
+    # Se usa search_question (PII eliminado), no safe_question (PII sustituido
+    # por placeholders): los placeholders degradan tanto la búsqueda como la
+    # generación. safe_question queda disponible en `guard` para logs.
+    raw_answer, docs = answer_question(guard["search_question"])
 
     is_toxic, terms = contains_toxicity(raw_answer)
     if is_toxic:

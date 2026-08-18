@@ -17,20 +17,30 @@ retriever = vector_store.as_retriever(search_kwargs={"k": 5})
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
+# El párrafo sobre la primera persona no es decorativo. Con el prompt corto
+# original ("Answer ONLY using provided context..."), gpt-4o-mini interpretaba
+# "what causes MY headaches?" como un pedido de diagnóstico individual —que
+# efectivamente no está en el contexto— y se abstenía, aunque el contexto
+# contuviera las causas generales. Como la gente pregunta así de forma natural
+# ("why do I have joint pain?", "what can I take for my migraines?"), eso
+# rompía buena parte de las consultas reales.
+# Verificado: con este prompt las preguntas en primera persona se responden, y
+# las que están fuera del corpus se siguen rechazando igual que antes.
 SYSTEM_PROMPT = (
-    "Answer ONLY using provided context. If the answer is not in the "
-    "context, say 'I don't know'."
+    "Answer ONLY using the provided context. Do not use outside knowledge.\n"
+    "Questions written in the first person (\"my headaches\", \"I have...\") are "
+    "requests for the general medical information in the context, not for a "
+    "personal diagnosis. Answer them with that general information.\n"
+    "If the context does not contain the answer, say 'I don't know'."
 )
 
 
-def answer_question(question: str, search_question: str | None = None):
+def answer_question(question: str):
     """
-    `question` es la que ve el LLM; `search_question` la que se embeddea para
-    buscar. Se separan porque el enmascarado de PII deja placeholders que
-    degradan la recuperación (ver guardrails.strip_pii). Si no se pasa la
-    segunda, se busca con la primera.
+    `question` debe venir ya libre de PII (ver guardrails.strip_pii): el mismo
+    texto se usa para buscar y para generar.
     """
-    docs = retriever.invoke(search_question or question)
+    docs = retriever.invoke(question)
     context = "\n\n".join(d.page_content for d in docs)
     response = llm.invoke([
         {"role": "system", "content": SYSTEM_PROMPT},
