@@ -2,8 +2,6 @@
 
 Chat de preguntas y respuestas médicas **en español** sobre el corpus **MedQuAD** de los Institutos Nacionales de Salud de EE. UU., con recuperación semántica (RAG), memoria conversacional, guardrails de seguridad y citación de fuentes.
 
-**Integrantes:** Castro Lozano, Ernesto Saniel · Quispe Bernardo, Andrés
-
 ## Stack
 
 - **FastAPI** — API REST (`POST /ask`) y documentación automática (`/docs`)
