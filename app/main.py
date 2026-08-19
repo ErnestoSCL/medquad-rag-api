@@ -24,6 +24,19 @@ from app.guardrails import (
 app = FastAPI(title="Asistente Médico RAG API")
 
 
+@app.get("/healthz")
+def healthz():
+    """
+    Sonda para la plataforma de despliegue (el Health Check Path de Render).
+
+    Responde solo por el proceso web: no consulta Supabase ni OpenAI a
+    propósito. Un chequeo que dependa de servicios externos haría que la
+    plataforma reinicie el contenedor cada vez que uno de ellos tenga una
+    intermitencia, cuando la app en sí está perfectamente viva.
+    """
+    return {"status": "ok"}
+
+
 def _resolver(pregunta: str, conversation_id: str | None):
     """
     Núcleo compartido por la API y la interfaz.
