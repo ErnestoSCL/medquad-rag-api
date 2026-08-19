@@ -36,6 +36,3 @@ for pregunta, clave in CASOS:
         print(f"  -- FALLA     {pregunta[:50]:52} -> {[f[:22] for f, _ in focos[:3]]}")
 
 print(f"\nrecall@5 con descripciones (sin nombre tecnico): {aciertos}/{len(CASOS)} = {100*aciertos/len(CASOS):.0f}%")
-print("\nNOTA: la clave es coincidencia de texto y subestima. Revisar los fallos a mano:")
-print("      'Neonatal progeroid syndrome' y 'Bleeding Disorders' son respuestas validas")
-print("      aunque no matcheen 'progeria' ni 'hemophilia'.")

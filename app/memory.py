@@ -2,13 +2,13 @@
 
 Dos niveles de identificación:
 
-  session_id       el usuario. Un UUID que el navegador guarda en localStorage.
-                   No se usa la IP: detrás de un NAT todos los usuarios de una
-                   red comparten IP pública —en una demo con varios evaluadores
-                   en el mismo wifi compartirían historial—, cambia si es
-                   dinámica, en Render llega la del proxy, y además es un dato
-                   personal, incoherente con tener un guardrail que enmascara
-                   PII.
+  session_id       el usuario. Un UUID que el navegador guarda en localStorage
+                   (gr.BrowserState). No se usa la IP: detrás de un NAT todos
+                   los usuarios de una red comparten IP pública —en una demo con
+                   varios evaluadores en el mismo wifi compartirían historial—,
+                   cambia si es dinámica, en Render llega la del proxy, y además
+                   es un dato personal, incoherente con tener un guardrail que
+                   enmascara PII.
 
   conversation_id  cada chat individual de ese usuario, para poder listarlos en
                    la barra lateral y retomarlos.

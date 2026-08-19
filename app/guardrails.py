@@ -216,6 +216,14 @@ def apply_clinical_guardrails(answer):
     no_answer = not answer_clean or any(m in lower for m in NO_ANSWER_MARKERS)
     body = INSUFFICIENT_INFO_MSG if no_answer else answer_clean
 
+    # Si el modelo ya escribió el disclaimer, no se agrega otro. Pasaba cuando
+    # el historial conservaba respuestas con la nota: el LLM veía ese patrón en
+    # los turnos previos y lo reproducía, quedando duplicado. La causa se
+    # corrigió guardando la respuesta cruda (ver main.py), pero esto queda como
+    # segunda barrera.
+    if CLINICAL_DISCLAIMER in body or "fines educativos y no sustituye" in body:
+        return body
+
     return f"{body}\n\n{CLINICAL_DISCLAIMER}"
 
 

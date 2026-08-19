@@ -1,0 +1,1820 @@
+[
+  {
+    "pregunta": "What are the symptoms of Bell's palsy?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Bell's palsy",
+        "sim": 0.752,
+        "nota": 2,
+        "texto": "Bell's palsy is a form of temporary facial paralysis which results from damage or trauma to one of the facial nerves. This disorder is characterized by the sudden onset of facial paralysis that often affects just one side and can cause significant facial distortion. Symptoms vary, but may include twitching, weakness, drooping eyelid or corner of the mouth, drooling, dry eye or mouth, impairment of"
+      },
+      {
+        "focus": "Bell's Palsy",
+        "sim": 0.75,
+        "nota": 2,
+        "texto": "Bell's palsy is a form of temporary facial paralysis resulting from damage or trauma to the 7th cranial nerve, one of the facial nerves. It is the most common cause of facial paralysis. Generally, Bell's palsy affects only one side of the face, however, in rare cases, it can affect both sides. Symptoms usually begin suddenly and reach their peak within 72 hours, and can range in severity from mild"
+      },
+      {
+        "focus": "Bell's Palsy",
+        "sim": 0.733,
+        "nota": 2,
+        "texto": "individuals and include sudden weakness on one side of the face, drooping eyelid or corner of the mouth, drooling, dry eye or mouth, altered taste, and excessive tearing in the eye. Bells palsy can cause significant facial distortion. The exact cause of Bell's palsy isn't known, but many scientists believe that reactivation of a dormant viral infection can cause the facial nerve to swell and becom"
+      },
+      {
+        "focus": "Bell's palsy",
+        "sim": 0.626,
+        "nota": 0,
+        "texto": "the exact cause is unknown, many researchers believe that a virus may lead to swelling of the 7th cranial nerve. Steroids, such as prednisone, may reduce the inflammation and swelling. Other medications used to treat Bell's palsy include acyclovir (to fight viral infections) and aspirin, acetaminophen, or ibuprofen (to relieve pain). Physical therapy, facial massage and acupuncture have also been "
+      },
+      {
+        "focus": "Familial congenital fourth cranial nerve palsy",
+        "sim": 0.511,
+        "nota": 0,
+        "texto": "The Human Phenotype Ontology provides the following list of signs and symptoms for Familial congenital fourth cranial nerve palsy. If the information is available, the table below includes how often the symptom is seen in people with this condition. You can use the MedlinePlus Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients ("
+      }
+    ]
+  },
+  {
+    "pregunta": "What are the symptoms of Bell's palsy?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Bell's palsy",
+        "sim": 0.752,
+        "nota": 2,
+        "texto": "Bell's palsy is a form of temporary facial paralysis which results from damage or trauma to one of the facial nerves. This disorder is characterized by the sudden onset of facial paralysis that often affects just one side and can cause significant facial distortion. Symptoms vary, but may include twitching, weakness, drooping eyelid or corner of the mouth, drooling, dry eye or mouth, impairment of"
+      },
+      {
+        "focus": "Bell's Palsy",
+        "sim": 0.75,
+        "nota": 2,
+        "texto": "Bell's palsy is a form of temporary facial paralysis resulting from damage or trauma to the 7th cranial nerve, one of the facial nerves. It is the most common cause of facial paralysis. Generally, Bell's palsy affects only one side of the face, however, in rare cases, it can affect both sides. Symptoms usually begin suddenly and reach their peak within 72 hours, and can range in severity from mild"
+      },
+      {
+        "focus": "Bell's Palsy",
+        "sim": 0.733,
+        "nota": 2,
+        "texto": "individuals and include sudden weakness on one side of the face, drooping eyelid or corner of the mouth, drooling, dry eye or mouth, altered taste, and excessive tearing in the eye. Bells palsy can cause significant facial distortion. The exact cause of Bell's palsy isn't known, but many scientists believe that reactivation of a dormant viral infection can cause the facial nerve to swell and becom"
+      },
+      {
+        "focus": "Bell's palsy",
+        "sim": 0.626,
+        "nota": 1,
+        "texto": "the exact cause is unknown, many researchers believe that a virus may lead to swelling of the 7th cranial nerve. Steroids, such as prednisone, may reduce the inflammation and swelling. Other medications used to treat Bell's palsy include acyclovir (to fight viral infections) and aspirin, acetaminophen, or ibuprofen (to relieve pain). Physical therapy, facial massage and acupuncture have also been "
+      }
+    ]
+  },
+  {
+    "pregunta": "What are the symptoms of Bell's palsy?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Bell's palsy",
+        "sim": 0.752,
+        "nota": 2,
+        "texto": "Bell's palsy is a form of temporary facial paralysis which results from damage or trauma to one of the facial nerves. This disorder is characterized by the sudden onset of facial paralysis that often affects just one side and can cause significant facial distortion. Symptoms vary, but may include twitching, weakness, drooping eyelid or corner of the mouth, drooling, dry eye or mouth, impairment of"
+      },
+      {
+        "focus": "Bell's Palsy",
+        "sim": 0.75,
+        "nota": 2,
+        "texto": "Bell's palsy is a form of temporary facial paralysis resulting from damage or trauma to the 7th cranial nerve, one of the facial nerves. It is the most common cause of facial paralysis. Generally, Bell's palsy affects only one side of the face, however, in rare cases, it can affect both sides. Symptoms usually begin suddenly and reach their peak within 72 hours, and can range in severity from mild"
+      },
+      {
+        "focus": "Bell's Palsy",
+        "sim": 0.733,
+        "nota": 1,
+        "texto": "individuals and include sudden weakness on one side of the face, drooping eyelid or corner of the mouth, drooling, dry eye or mouth, altered taste, and excessive tearing in the eye. Bells palsy can cause significant facial distortion. The exact cause of Bell's palsy isn't known, but many scientists believe that reactivation of a dormant viral infection can cause the facial nerve to swell and becom"
+      }
+    ]
+  },
+  {
+    "pregunta": "What are the symptoms of Bell's palsy?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Bell's palsy",
+        "sim": 0.752,
+        "nota": 2,
+        "texto": "Bell's palsy is a form of temporary facial paralysis which results from damage or trauma to one of the facial nerves. This disorder is characterized by the sudden onset of facial paralysis that often affects just one side and can cause significant facial distortion. Symptoms vary, but may include twitching, weakness, drooping eyelid or corner of the mouth, drooling, dry eye or mouth, impairment of"
+      },
+      {
+        "focus": "Bell's Palsy",
+        "sim": 0.75,
+        "nota": 2,
+        "texto": "Bell's palsy is a form of temporary facial paralysis resulting from damage or trauma to the 7th cranial nerve, one of the facial nerves. It is the most common cause of facial paralysis. Generally, Bell's palsy affects only one side of the face, however, in rare cases, it can affect both sides. Symptoms usually begin suddenly and reach their peak within 72 hours, and can range in severity from mild"
+      },
+      {
+        "focus": "Bell's Palsy",
+        "sim": 0.733,
+        "nota": 1,
+        "texto": "individuals and include sudden weakness on one side of the face, drooping eyelid or corner of the mouth, drooling, dry eye or mouth, altered taste, and excessive tearing in the eye. Bells palsy can cause significant facial distortion. The exact cause of Bell's palsy isn't known, but many scientists believe that reactivation of a dormant viral infection can cause the facial nerve to swell and becom"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is the treatment for migraine?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Migraine",
+        "sim": 0.729,
+        "nota": 2,
+        "texto": "There is no absolute cure for migraine since its pathophysiology has yet to be fully understood. There are two ways to approach the treatment of migraine headache with drugs: prevent the attacks, or relieve the symptoms during the attacks. Prevention involves the use of medications and behavioral changes. Drugs originally developed for epilepsy, depression, or high blood pressure to prevent future"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.704,
+        "nota": 2,
+        "texto": "such as ibuprofen and aspirin. The sooner these treatments are administered, the more effective they are."
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.675,
+        "nota": 2,
+        "texto": "in treating migraine. Botulinum toxin A has been shown to be effective in prevention of chronic migraine. Behaviorally, stress management strategies, such as exercise, relaxation techniques, biofeedback mechanisms, and other therapies designed to limit daily discomfort, may reduce the number and severity of migraine attacks. Making a log of personal triggers of migraine can also provide useful inf"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.662,
+        "nota": 2,
+        "texto": "including dietary considerations, eating regularly scheduled meals with adequate hydration, stopping certain medications, and establishing a consistent sleep schedule. Hormone therapy may help some women whose migraines seem to be linked to their menstrual cycle. A weight loss program is recommended for obese individuals with migraine. Relief of symptoms, or acute treatments, during attacks consis"
+      },
+      {
+        "focus": "Familial hemiplegic migraine type 1",
+        "sim": 0.652,
+        "nota": 1,
+        "texto": "Treatment of hemiplegic migraine varies depending on severity and which symptoms are most problematic for the patient. In general, treatments aim to manage symptoms. Drugs that are effective in the prevention of common migraines may be used in hemiplegic migraine. Prophylactic management is applied to patients with frequent, long lasting, or severe attacks. Examples of migraine drugs that have bee"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is the treatment for migraine?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Migraine",
+        "sim": 0.729,
+        "nota": 2,
+        "texto": "There is no absolute cure for migraine since its pathophysiology has yet to be fully understood. There are two ways to approach the treatment of migraine headache with drugs: prevent the attacks, or relieve the symptoms during the attacks. Prevention involves the use of medications and behavioral changes. Drugs originally developed for epilepsy, depression, or high blood pressure to prevent future"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.704,
+        "nota": 2,
+        "texto": "such as ibuprofen and aspirin. The sooner these treatments are administered, the more effective they are."
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.675,
+        "nota": 2,
+        "texto": "in treating migraine. Botulinum toxin A has been shown to be effective in prevention of chronic migraine. Behaviorally, stress management strategies, such as exercise, relaxation techniques, biofeedback mechanisms, and other therapies designed to limit daily discomfort, may reduce the number and severity of migraine attacks. Making a log of personal triggers of migraine can also provide useful inf"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.662,
+        "nota": 2,
+        "texto": "including dietary considerations, eating regularly scheduled meals with adequate hydration, stopping certain medications, and establishing a consistent sleep schedule. Hormone therapy may help some women whose migraines seem to be linked to their menstrual cycle. A weight loss program is recommended for obese individuals with migraine. Relief of symptoms, or acute treatments, during attacks consis"
+      },
+      {
+        "focus": "Familial hemiplegic migraine type 1",
+        "sim": 0.652,
+        "nota": 1,
+        "texto": "Treatment of hemiplegic migraine varies depending on severity and which symptoms are most problematic for the patient. In general, treatments aim to manage symptoms. Drugs that are effective in the prevention of common migraines may be used in hemiplegic migraine. Prophylactic management is applied to patients with frequent, long lasting, or severe attacks. Examples of migraine drugs that have bee"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is the treatment for migraine?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Migraine",
+        "sim": 0.729,
+        "nota": 2,
+        "texto": "There is no absolute cure for migraine since its pathophysiology has yet to be fully understood. There are two ways to approach the treatment of migraine headache with drugs: prevent the attacks, or relieve the symptoms during the attacks. Prevention involves the use of medications and behavioral changes. Drugs originally developed for epilepsy, depression, or high blood pressure to prevent future"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.675,
+        "nota": 2,
+        "texto": "in treating migraine. Botulinum toxin A has been shown to be effective in prevention of chronic migraine. Behaviorally, stress management strategies, such as exercise, relaxation techniques, biofeedback mechanisms, and other therapies designed to limit daily discomfort, may reduce the number and severity of migraine attacks. Making a log of personal triggers of migraine can also provide useful inf"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.662,
+        "nota": 2,
+        "texto": "including dietary considerations, eating regularly scheduled meals with adequate hydration, stopping certain medications, and establishing a consistent sleep schedule. Hormone therapy may help some women whose migraines seem to be linked to their menstrual cycle. A weight loss program is recommended for obese individuals with migraine. Relief of symptoms, or acute treatments, during attacks consis"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is the treatment for migraine?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Migraine",
+        "sim": 0.729,
+        "nota": 2,
+        "texto": "There is no absolute cure for migraine since its pathophysiology has yet to be fully understood. There are two ways to approach the treatment of migraine headache with drugs: prevent the attacks, or relieve the symptoms during the attacks. Prevention involves the use of medications and behavioral changes. Drugs originally developed for epilepsy, depression, or high blood pressure to prevent future"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.675,
+        "nota": 2,
+        "texto": "in treating migraine. Botulinum toxin A has been shown to be effective in prevention of chronic migraine. Behaviorally, stress management strategies, such as exercise, relaxation techniques, biofeedback mechanisms, and other therapies designed to limit daily discomfort, may reduce the number and severity of migraine attacks. Making a log of personal triggers of migraine can also provide useful inf"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.662,
+        "nota": 2,
+        "texto": "including dietary considerations, eating regularly scheduled meals with adequate hydration, stopping certain medications, and establishing a consistent sleep schedule. Hormone therapy may help some women whose migraines seem to be linked to their menstrual cycle. A weight loss program is recommended for obese individuals with migraine. Relief of symptoms, or acute treatments, during attacks consis"
+      }
+    ]
+  },
+  {
+    "pregunta": "How is asthma treated?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Asthma",
+        "sim": 0.712,
+        "nota": 2,
+        "texto": "can be taken in pill form, but most are taken using a device called an inhaler. An inhaler allows the medicine to go directly to your lungs. Not all inhalers are used the same way. Ask your doctor or another health care provider to show you the right way to use your inhaler. Review the way you use your inhaler at every medical visit. Long-Term Control Medicines Most people who have asthma need to "
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.696,
+        "nota": 2,
+        "texto": "Reducing inflammation helps prevent the chain reaction that causes asthma symptoms. Most people who take these medicines daily find they greatly reduce the severity of symptoms and how often they occur. Inhaled corticosteroids generally are safe when taken as prescribed. These medicines are different from the illegal anabolic steroids taken by some athletes. Inhaled corticosteroids aren't habit-fo"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.695,
+        "nota": 2,
+        "texto": "to worsening symptoms, and seeking emergency care when needed. Asthma is treated with two types of medicines: long-term control and quick-relief medicines. Long-term control medicines help reduce airway inflammation and prevent asthma symptoms. Quick-relief, or \"rescue,\" medicines relieve asthma symptoms that may flare up. Your initial treatment will depend on the severity of your asthma. Followup"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.684,
+        "nota": 1,
+        "texto": "asthma action plan is controlling your symptoms and preventing asthma attacks. Your level of asthma control can vary over time and with changes in your home, school, or work environments. These changes can alter how often you're exposed to the factors that can worsen your asthma. Your doctor may need to increase your medicine if your asthma doesn't stay under control. On the other hand, if your as"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.679,
+        "nota": 1,
+        "texto": "on your answers to these questions, your doctor may change the dose of your medicine or give you a new medicine. If your control is very good, you might be able to take less medicine. The goal is to use the least amount of medicine needed to control your asthma. Emergency Care Most people who have asthma, including many children, can safely manage their symptoms by following their asthma action pl"
+      }
+    ]
+  },
+  {
+    "pregunta": "How is asthma treated?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Asthma",
+        "sim": 0.712,
+        "nota": 2,
+        "texto": "can be taken in pill form, but most are taken using a device called an inhaler. An inhaler allows the medicine to go directly to your lungs. Not all inhalers are used the same way. Ask your doctor or another health care provider to show you the right way to use your inhaler. Review the way you use your inhaler at every medical visit. Long-Term Control Medicines Most people who have asthma need to "
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.696,
+        "nota": 2,
+        "texto": "Reducing inflammation helps prevent the chain reaction that causes asthma symptoms. Most people who take these medicines daily find they greatly reduce the severity of symptoms and how often they occur. Inhaled corticosteroids generally are safe when taken as prescribed. These medicines are different from the illegal anabolic steroids taken by some athletes. Inhaled corticosteroids aren't habit-fo"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.695,
+        "nota": 2,
+        "texto": "to worsening symptoms, and seeking emergency care when needed. Asthma is treated with two types of medicines: long-term control and quick-relief medicines. Long-term control medicines help reduce airway inflammation and prevent asthma symptoms. Quick-relief, or \"rescue,\" medicines relieve asthma symptoms that may flare up. Your initial treatment will depend on the severity of your asthma. Followup"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.684,
+        "nota": 1,
+        "texto": "asthma action plan is controlling your symptoms and preventing asthma attacks. Your level of asthma control can vary over time and with changes in your home, school, or work environments. These changes can alter how often you're exposed to the factors that can worsen your asthma. Your doctor may need to increase your medicine if your asthma doesn't stay under control. On the other hand, if your as"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.678,
+        "nota": 1,
+        "texto": "on your answers to these questions, your doctor may change the dose of your medicine or give you a new medicine. If your control is very good, you might be able to take less medicine. The goal is to use the least amount of medicine needed to control your asthma. Emergency Care Most people who have asthma, including many children, can safely manage their symptoms by following their asthma action pl"
+      }
+    ]
+  },
+  {
+    "pregunta": "How is asthma treated?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Asthma",
+        "sim": 0.695,
+        "nota": 2,
+        "texto": "to worsening symptoms, and seeking emergency care when needed. Asthma is treated with two types of medicines: long-term control and quick-relief medicines. Long-term control medicines help reduce airway inflammation and prevent asthma symptoms. Quick-relief, or \"rescue,\" medicines relieve asthma symptoms that may flare up. Your initial treatment will depend on the severity of your asthma. Followup"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.712,
+        "nota": 2,
+        "texto": "can be taken in pill form, but most are taken using a device called an inhaler. An inhaler allows the medicine to go directly to your lungs. Not all inhalers are used the same way. Ask your doctor or another health care provider to show you the right way to use your inhaler. Review the way you use your inhaler at every medical visit. Long-Term Control Medicines Most people who have asthma need to "
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.696,
+        "nota": 2,
+        "texto": "Reducing inflammation helps prevent the chain reaction that causes asthma symptoms. Most people who take these medicines daily find they greatly reduce the severity of symptoms and how often they occur. Inhaled corticosteroids generally are safe when taken as prescribed. These medicines are different from the illegal anabolic steroids taken by some athletes. Inhaled corticosteroids aren't habit-fo"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.676,
+        "nota": 2,
+        "texto": "prevent symptoms. The most effective long-term medicines reduce airway inflammation, which helps prevent symptoms from starting. These medicines don't give you quick relief from symptoms. Inhaled corticosteroids. Inhaled corticosteroids are the preferred medicine for long-term control of asthma. They're the most effective option for long-term relief of the inflammation and swelling that makes your"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.649,
+        "nota": 2,
+        "texto": "of medicine in your blood. This helps ensure that youre getting enough medicine to relieve your asthma symptoms, but not so much that it causes dangerous side effects. Quick-Relief Medicines All people who have asthma need quick-relief medicines to help relieve asthma symptoms that may flare up. Inhaled short-acting beta2-agonists are the first choice for quick relief. These medicines act quickly "
+      }
+    ]
+  },
+  {
+    "pregunta": "How is asthma treated?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Asthma",
+        "sim": 0.695,
+        "nota": 2,
+        "texto": "to worsening symptoms, and seeking emergency care when needed. Asthma is treated with two types of medicines: long-term control and quick-relief medicines. Long-term control medicines help reduce airway inflammation and prevent asthma symptoms. Quick-relief, or \"rescue,\" medicines relieve asthma symptoms that may flare up. Your initial treatment will depend on the severity of your asthma. Followup"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.712,
+        "nota": 2,
+        "texto": "can be taken in pill form, but most are taken using a device called an inhaler. An inhaler allows the medicine to go directly to your lungs. Not all inhalers are used the same way. Ask your doctor or another health care provider to show you the right way to use your inhaler. Review the way you use your inhaler at every medical visit. Long-Term Control Medicines Most people who have asthma need to "
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.696,
+        "nota": 2,
+        "texto": "Reducing inflammation helps prevent the chain reaction that causes asthma symptoms. Most people who take these medicines daily find they greatly reduce the severity of symptoms and how often they occur. Inhaled corticosteroids generally are safe when taken as prescribed. These medicines are different from the illegal anabolic steroids taken by some athletes. Inhaled corticosteroids aren't habit-fo"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.676,
+        "nota": 2,
+        "texto": "prevent symptoms. The most effective long-term medicines reduce airway inflammation, which helps prevent symptoms from starting. These medicines don't give you quick relief from symptoms. Inhaled corticosteroids. Inhaled corticosteroids are the preferred medicine for long-term control of asthma. They're the most effective option for long-term relief of the inflammation and swelling that makes your"
+      },
+      {
+        "focus": "Asthma",
+        "sim": 0.649,
+        "nota": 2,
+        "texto": "of medicine in your blood. This helps ensure that youre getting enough medicine to relieve your asthma symptoms, but not so much that it causes dangerous side effects. Quick-Relief Medicines All people who have asthma need quick-relief medicines to help relieve asthma symptoms that may flare up. Inhaled short-acting beta2-agonists are the first choice for quick relief. These medicines act quickly "
+      }
+    ]
+  },
+  {
+    "pregunta": "What is diabetes?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Diabetes mellitus type 1",
+        "sim": 0.612,
+        "nota": 2,
+        "texto": "Diabetes mellitus type 1 (DM1) is a condition in which cells in the pancreas (beta cells) stop producing insulin, causing abnormally high blood sugar levels. Lack of insulin results in the inability of the body to use glucose for energy and control the amount of sugar in the blood. DM1 can occur at any age, but usually develops by early adulthood, most often in adolescence. Symptoms of high blood "
+      },
+      {
+        "focus": "Diabetes mellitus type 1",
+        "sim": 0.604,
+        "nota": 1,
+        "texto": "high blood sugar, or abnormally low blood sugar (hypoglycemia) during exercise or when eating is delayed. If not treated, the condition can be life-threatening. Over many years, chronic high blood sugar may be associated with a variety of complications that affect many parts of the body."
+      },
+      {
+        "focus": "Diabetes Type 1",
+        "sim": 0.596,
+        "nota": 2,
+        "texto": "Diabetes means your blood glucose, or blood sugar, levels are too high. With type 1 diabetes, your pancreas does not make insulin. Insulin is a hormone that helps glucose get into your cells to give them energy. Without insulin, too much glucose stays in your blood. Over time, high blood glucose can lead to serious problems with your heart, eyes, kidneys, nerves, and gums and teeth. Type 1 diabete"
+      },
+      {
+        "focus": "Causes of Diabetes",
+        "sim": 0.595,
+        "nota": 2,
+        "texto": "Diabetes is a complex group of diseases with a variety of causes. People with diabetes have high blood glucose, also called high blood sugar or hyperglycemia. Diabetes is a disorder of metabolismthe way the body uses digested food for energy. The digestive tract breaks down carbohydratessugars and starches found in many foodsinto glucose, a form of sugar that enters the bloodstream. With the help "
+      },
+      {
+        "focus": "Diabetes mellitus type 1",
+        "sim": 0.584,
+        "nota": 1,
+        "texto": "thirst, fatigue, blurred vision, tingling or loss of feeling in the hands and feet, and weight loss. The exact cause of DM1 is unknown, but having certain \"variants\" of specific genes may increase a person's risk to develop the condition. A predisposition to develop DM1 runs in families, but no known inheritance pattern exists. Treatment includes blood sugar control and insulin replacement therapy"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is diabetes?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Diabetes mellitus type 1",
+        "sim": 0.612,
+        "nota": 2,
+        "texto": "Diabetes mellitus type 1 (DM1) is a condition in which cells in the pancreas (beta cells) stop producing insulin, causing abnormally high blood sugar levels. Lack of insulin results in the inability of the body to use glucose for energy and control the amount of sugar in the blood. DM1 can occur at any age, but usually develops by early adulthood, most often in adolescence. Symptoms of high blood "
+      },
+      {
+        "focus": "Diabetes mellitus type 1",
+        "sim": 0.604,
+        "nota": 1,
+        "texto": "high blood sugar, or abnormally low blood sugar (hypoglycemia) during exercise or when eating is delayed. If not treated, the condition can be life-threatening. Over many years, chronic high blood sugar may be associated with a variety of complications that affect many parts of the body."
+      },
+      {
+        "focus": "Diabetes Type 1",
+        "sim": 0.596,
+        "nota": 2,
+        "texto": "Diabetes means your blood glucose, or blood sugar, levels are too high. With type 1 diabetes, your pancreas does not make insulin. Insulin is a hormone that helps glucose get into your cells to give them energy. Without insulin, too much glucose stays in your blood. Over time, high blood glucose can lead to serious problems with your heart, eyes, kidneys, nerves, and gums and teeth. Type 1 diabete"
+      },
+      {
+        "focus": "Causes of Diabetes",
+        "sim": 0.595,
+        "nota": 2,
+        "texto": "Diabetes is a complex group of diseases with a variety of causes. People with diabetes have high blood glucose, also called high blood sugar or hyperglycemia. Diabetes is a disorder of metabolismthe way the body uses digested food for energy. The digestive tract breaks down carbohydratessugars and starches found in many foodsinto glucose, a form of sugar that enters the bloodstream. With the help "
+      },
+      {
+        "focus": "Diabetes mellitus type 1",
+        "sim": 0.584,
+        "nota": 1,
+        "texto": "thirst, fatigue, blurred vision, tingling or loss of feeling in the hands and feet, and weight loss. The exact cause of DM1 is unknown, but having certain \"variants\" of specific genes may increase a person's risk to develop the condition. A predisposition to develop DM1 runs in families, but no known inheritance pattern exists. Treatment includes blood sugar control and insulin replacement therapy"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is diabetes?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Diabetes mellitus type 1",
+        "sim": 0.612,
+        "nota": 2,
+        "texto": "Diabetes mellitus type 1 (DM1) is a condition in which cells in the pancreas (beta cells) stop producing insulin, causing abnormally high blood sugar levels. Lack of insulin results in the inability of the body to use glucose for energy and control the amount of sugar in the blood. DM1 can occur at any age, but usually develops by early adulthood, most often in adolescence. Symptoms of high blood "
+      },
+      {
+        "focus": "Diabetes Type 1",
+        "sim": 0.596,
+        "nota": 2,
+        "texto": "Diabetes means your blood glucose, or blood sugar, levels are too high. With type 1 diabetes, your pancreas does not make insulin. Insulin is a hormone that helps glucose get into your cells to give them energy. Without insulin, too much glucose stays in your blood. Over time, high blood glucose can lead to serious problems with your heart, eyes, kidneys, nerves, and gums and teeth. Type 1 diabete"
+      },
+      {
+        "focus": "Causes of Diabetes",
+        "sim": 0.595,
+        "nota": 2,
+        "texto": "Diabetes is a complex group of diseases with a variety of causes. People with diabetes have high blood glucose, also called high blood sugar or hyperglycemia. Diabetes is a disorder of metabolismthe way the body uses digested food for energy. The digestive tract breaks down carbohydratessugars and starches found in many foodsinto glucose, a form of sugar that enters the bloodstream. With the help "
+      },
+      {
+        "focus": "type 1 diabetes",
+        "sim": 0.552,
+        "nota": 2,
+        "texto": "Type 1 diabetes is a disorder characterized by abnormally high blood sugar levels. In this form of diabetes, specialized cells in the pancreas called beta cells stop producing insulin. Insulin controls how much glucose (a type of sugar) is passed from the blood into cells for conversion to energy. Lack of insulin results in the inability to use glucose for energy or to control the amount of sugar "
+      },
+      {
+        "focus": "Diabetes",
+        "sim": 0.532,
+        "nota": 1,
+        "texto": "Diabetes is a serious, life-long disease. It can lead to problems such as heart disease, stroke, vision loss, kidney disease, and nerve damage. More than 8 million people in the United States have type 2 diabetes and dont know it. Many people dont find out they have diabetes until they are faced with problems such as blurry vision or heart trouble. Certain factors can increase your risk for diabet"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is diabetes?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Diabetes mellitus type 1",
+        "sim": 0.612,
+        "nota": 2,
+        "texto": "Diabetes mellitus type 1 (DM1) is a condition in which cells in the pancreas (beta cells) stop producing insulin, causing abnormally high blood sugar levels. Lack of insulin results in the inability of the body to use glucose for energy and control the amount of sugar in the blood. DM1 can occur at any age, but usually develops by early adulthood, most often in adolescence. Symptoms of high blood "
+      },
+      {
+        "focus": "Diabetes Type 1",
+        "sim": 0.596,
+        "nota": 2,
+        "texto": "Diabetes means your blood glucose, or blood sugar, levels are too high. With type 1 diabetes, your pancreas does not make insulin. Insulin is a hormone that helps glucose get into your cells to give them energy. Without insulin, too much glucose stays in your blood. Over time, high blood glucose can lead to serious problems with your heart, eyes, kidneys, nerves, and gums and teeth. Type 1 diabete"
+      },
+      {
+        "focus": "Causes of Diabetes",
+        "sim": 0.595,
+        "nota": 2,
+        "texto": "Diabetes is a complex group of diseases with a variety of causes. People with diabetes have high blood glucose, also called high blood sugar or hyperglycemia. Diabetes is a disorder of metabolismthe way the body uses digested food for energy. The digestive tract breaks down carbohydratessugars and starches found in many foodsinto glucose, a form of sugar that enters the bloodstream. With the help "
+      },
+      {
+        "focus": "type 1 diabetes",
+        "sim": 0.552,
+        "nota": 2,
+        "texto": "Type 1 diabetes is a disorder characterized by abnormally high blood sugar levels. In this form of diabetes, specialized cells in the pancreas called beta cells stop producing insulin. Insulin controls how much glucose (a type of sugar) is passed from the blood into cells for conversion to energy. Lack of insulin results in the inability to use glucose for energy or to control the amount of sugar "
+      },
+      {
+        "focus": "Diabetes",
+        "sim": 0.532,
+        "nota": 1,
+        "texto": "Diabetes is a serious, life-long disease. It can lead to problems such as heart disease, stroke, vision loss, kidney disease, and nerve damage. More than 8 million people in the United States have type 2 diabetes and dont know it. Many people dont find out they have diabetes until they are faced with problems such as blurry vision or heart trouble. Certain factors can increase your risk for diabet"
+      }
+    ]
+  },
+  {
+    "pregunta": "What are the symptoms of Parkinson's disease?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Parkinson's Disease",
+        "sim": 0.721,
+        "nota": 2,
+        "texto": "instability, or impaired balance. tremor, or trembling in hands, arms, legs, jaw, or head rigidity, or stiffness of the limbs and trunk bradykinesia, or slowness of movement postural instability, or impaired balance. Parkinson's symptoms usually begin gradually and get worse over time. As the symptoms become more severe, people with the disorder may have difficulty walking, talking, or completing "
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.708,
+        "nota": 2,
+        "texto": "Parkinson disease belongs to a group of conditions called movement disorders. The four main symptoms are tremor, or trembling in hands, arms, legs, jaw, or head; rigidity, or stiffness of the limbs and trunk; bradykinesia, or slowness of movement; and postural instability, or impaired balance. These symptoms usually begin gradually and worsen with time. As they become more pronounced, patients may"
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.693,
+        "nota": 0,
+        "texto": "Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Dysautonomia 7.5% Hallucinations 7.5% Bradykinesia - Constipation - Dementia - Depression - Dysarthria - Dysphagia - Dystonia - Insidious onset - Lewy bodies - Mask-like facies - Neuronal loss in central nervous system - Parkinsonism - Personality changes - Post"
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.681,
+        "nota": 1,
+        "texto": "A number of disorders can cause symptoms similar to those of Parkinson disease. People with symptoms that resemble Parkinson disease but that result from other causes are sometimes said to have parkinsonism. Some of these disorders are listed below. Postencephalitic parkinsonism Drug-induced parkinsonism Toxin-induced parkinsonism Arteriosclerotic parkinsonism Parkinsonism-dementia complex of Guam"
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.666,
+        "nota": 0,
+        "texto": "- Rigidity - Short stepped shuffling gait - Sleep disturbance - Substantia nigra gliosis - Urinary urgency - Weak voice - The Human Phenotype Ontology (HPO) has collected information on how often a sign or symptom occurs in a condition. Much of this information comes from Orphanet, a European rare disease database. The frequency of a sign or symptom is usually listed as a rough estimate of the per"
+      }
+    ]
+  },
+  {
+    "pregunta": "What are the symptoms of Parkinson's disease?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Parkinson's Disease",
+        "sim": 0.721,
+        "nota": 2,
+        "texto": "instability, or impaired balance. tremor, or trembling in hands, arms, legs, jaw, or head rigidity, or stiffness of the limbs and trunk bradykinesia, or slowness of movement postural instability, or impaired balance. Parkinson's symptoms usually begin gradually and get worse over time. As the symptoms become more severe, people with the disorder may have difficulty walking, talking, or completing "
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.708,
+        "nota": 2,
+        "texto": "Parkinson disease belongs to a group of conditions called movement disorders. The four main symptoms are tremor, or trembling in hands, arms, legs, jaw, or head; rigidity, or stiffness of the limbs and trunk; bradykinesia, or slowness of movement; and postural instability, or impaired balance. These symptoms usually begin gradually and worsen with time. As they become more pronounced, patients may"
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.693,
+        "nota": 0,
+        "texto": "Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Dysautonomia 7.5% Hallucinations 7.5% Bradykinesia - Constipation - Dementia - Depression - Dysarthria - Dysphagia - Dystonia - Insidious onset - Lewy bodies - Mask-like facies - Neuronal loss in central nervous system - Parkinsonism - Personality changes - Post"
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.681,
+        "nota": 1,
+        "texto": "A number of disorders can cause symptoms similar to those of Parkinson disease. People with symptoms that resemble Parkinson disease but that result from other causes are sometimes said to have parkinsonism. Some of these disorders are listed below. Postencephalitic parkinsonism Drug-induced parkinsonism Toxin-induced parkinsonism Arteriosclerotic parkinsonism Parkinsonism-dementia complex of Guam"
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.666,
+        "nota": 0,
+        "texto": "- Rigidity - Short stepped shuffling gait - Sleep disturbance - Substantia nigra gliosis - Urinary urgency - Weak voice - The Human Phenotype Ontology (HPO) has collected information on how often a sign or symptom occurs in a condition. Much of this information comes from Orphanet, a European rare disease database. The frequency of a sign or symptom is usually listed as a rough estimate of the per"
+      }
+    ]
+  },
+  {
+    "pregunta": "What are the symptoms of Parkinson's disease?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Parkinson's Disease",
+        "sim": 0.721,
+        "nota": 2,
+        "texto": "instability, or impaired balance. tremor, or trembling in hands, arms, legs, jaw, or head rigidity, or stiffness of the limbs and trunk bradykinesia, or slowness of movement postural instability, or impaired balance. Parkinson's symptoms usually begin gradually and get worse over time. As the symptoms become more severe, people with the disorder may have difficulty walking, talking, or completing "
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.708,
+        "nota": 2,
+        "texto": "Parkinson disease belongs to a group of conditions called movement disorders. The four main symptoms are tremor, or trembling in hands, arms, legs, jaw, or head; rigidity, or stiffness of the limbs and trunk; bradykinesia, or slowness of movement; and postural instability, or impaired balance. These symptoms usually begin gradually and worsen with time. As they become more pronounced, patients may"
+      },
+      {
+        "focus": "Parkinson's Disease",
+        "sim": 0.605,
+        "nota": 1,
+        "texto": "paper on what he called \"the shaking palsy.\" In this paper, he described the major symptoms of the disease that would later bear his name. Four Main Symptoms Parkinson's disease belongs to a group of neurological conditions called movement disorders. The four main symptoms of Parkinson's are: - tremor, or trembling in hands, arms, legs, jaw, or head - rigidity, or stiffness of the limbs and trunk "
+      }
+    ]
+  },
+  {
+    "pregunta": "What are the symptoms of Parkinson's disease?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Parkinson's Disease",
+        "sim": 0.721,
+        "nota": 2,
+        "texto": "instability, or impaired balance. tremor, or trembling in hands, arms, legs, jaw, or head rigidity, or stiffness of the limbs and trunk bradykinesia, or slowness of movement postural instability, or impaired balance. Parkinson's symptoms usually begin gradually and get worse over time. As the symptoms become more severe, people with the disorder may have difficulty walking, talking, or completing "
+      },
+      {
+        "focus": "Parkinson disease",
+        "sim": 0.708,
+        "nota": 2,
+        "texto": "Parkinson disease belongs to a group of conditions called movement disorders. The four main symptoms are tremor, or trembling in hands, arms, legs, jaw, or head; rigidity, or stiffness of the limbs and trunk; bradykinesia, or slowness of movement; and postural instability, or impaired balance. These symptoms usually begin gradually and worsen with time. As they become more pronounced, patients may"
+      },
+      {
+        "focus": "Parkinson's Disease",
+        "sim": 0.605,
+        "nota": 1,
+        "texto": "paper on what he called \"the shaking palsy.\" In this paper, he described the major symptoms of the disease that would later bear his name. Four Main Symptoms Parkinson's disease belongs to a group of neurological conditions called movement disorders. The four main symptoms of Parkinson's are: - tremor, or trembling in hands, arms, legs, jaw, or head - rigidity, or stiffness of the limbs and trunk "
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Wilson disease?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Wilson disease",
+        "sim": 0.776,
+        "nota": 2,
+        "texto": "Wilson disease is an inherited disorder in which excessive amounts of copper accumulate in the body, particularly in the liver, brain, and eyes. The signs and symptoms of Wilson disease usually first appear between the ages of 6 and 45, but they most often begin during the teenage years. The features of this condition include a combination of liver disease and neurological and psychiatric problems"
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.749,
+        "nota": 2,
+        "texto": "Wilson disease (WD) is a rare inherited disorder of copper metabolism in which excessive amounts of copper accumulate in the body. The buildup of copper leads to damage in the liver, brain, and eyes. Although copper accumulation begins at birth, symptoms of the disorder only appear later in life. The most characteristic sign of WD is the Kayser-Fleisher ring a rusty brown ring around the cornea of"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.737,
+        "nota": 1,
+        "texto": "Wilson disease can affect many different systems of the body. Affected people often develop signs and symptoms of chronic liver disease in their teenaged years or early twenties. These features may include jaundice; abnormal fluid retention which can lead to swelling of the legs and/or abdomen; weight loss; nausea and vomiting; and/or fatigue. Unfortunately, some people may not experience any sign"
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.732,
+        "nota": 1,
+        "texto": "bizarre and inappropriate behavior, depression accompanied by suicidal thoughts, neurosis, or psychosis. WD is diagnosed with tests that measure the amount of copper in the blood, urine, and liver."
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.724,
+        "nota": 2,
+        "texto": "Wilson disease is caused by changes (mutations) in the ATP7B gene. This gene encodes a protein that plays an important role in the transport of copper from the liver to the rest of the body. It also helps remove excess copper from the body. Mutations in the ATP7B gene prevent this protein from working properly, which can lead to an accumulation of copper in the body. Because high levels of copper "
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Wilson disease?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Wilson disease",
+        "sim": 0.776,
+        "nota": 2,
+        "texto": "Wilson disease is an inherited disorder in which excessive amounts of copper accumulate in the body, particularly in the liver, brain, and eyes. The signs and symptoms of Wilson disease usually first appear between the ages of 6 and 45, but they most often begin during the teenage years. The features of this condition include a combination of liver disease and neurological and psychiatric problems"
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.749,
+        "nota": 2,
+        "texto": "Wilson disease (WD) is a rare inherited disorder of copper metabolism in which excessive amounts of copper accumulate in the body. The buildup of copper leads to damage in the liver, brain, and eyes. Although copper accumulation begins at birth, symptoms of the disorder only appear later in life. The most characteristic sign of WD is the Kayser-Fleisher ring a rusty brown ring around the cornea of"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.737,
+        "nota": 1,
+        "texto": "Wilson disease can affect many different systems of the body. Affected people often develop signs and symptoms of chronic liver disease in their teenaged years or early twenties. These features may include jaundice; abnormal fluid retention which can lead to swelling of the legs and/or abdomen; weight loss; nausea and vomiting; and/or fatigue. Unfortunately, some people may not experience any sign"
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.732,
+        "nota": 1,
+        "texto": "bizarre and inappropriate behavior, depression accompanied by suicidal thoughts, neurosis, or psychosis. WD is diagnosed with tests that measure the amount of copper in the blood, urine, and liver."
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.724,
+        "nota": 2,
+        "texto": "Wilson disease is caused by changes (mutations) in the ATP7B gene. This gene encodes a protein that plays an important role in the transport of copper from the liver to the rest of the body. It also helps remove excess copper from the body. Mutations in the ATP7B gene prevent this protein from working properly, which can lead to an accumulation of copper in the body. Because high levels of copper "
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Wilson disease?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Wilson disease",
+        "sim": 0.776,
+        "nota": 2,
+        "texto": "Wilson disease is an inherited disorder in which excessive amounts of copper accumulate in the body, particularly in the liver, brain, and eyes. The signs and symptoms of Wilson disease usually first appear between the ages of 6 and 45, but they most often begin during the teenage years. The features of this condition include a combination of liver disease and neurological and psychiatric problems"
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.749,
+        "nota": 2,
+        "texto": "Wilson disease (WD) is a rare inherited disorder of copper metabolism in which excessive amounts of copper accumulate in the body. The buildup of copper leads to damage in the liver, brain, and eyes. Although copper accumulation begins at birth, symptoms of the disorder only appear later in life. The most characteristic sign of WD is the Kayser-Fleisher ring a rusty brown ring around the cornea of"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.724,
+        "nota": 2,
+        "texto": "Wilson disease is caused by changes (mutations) in the ATP7B gene. This gene encodes a protein that plays an important role in the transport of copper from the liver to the rest of the body. It also helps remove excess copper from the body. Mutations in the ATP7B gene prevent this protein from working properly, which can lead to an accumulation of copper in the body. Because high levels of copper "
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.737,
+        "nota": 1,
+        "texto": "Wilson disease can affect many different systems of the body. Affected people often develop signs and symptoms of chronic liver disease in their teenaged years or early twenties. These features may include jaundice; abnormal fluid retention which can lead to swelling of the legs and/or abdomen; weight loss; nausea and vomiting; and/or fatigue. Unfortunately, some people may not experience any sign"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.722,
+        "nota": 1,
+        "texto": "of Wilson disease in affected children and young adults; individuals diagnosed at an older age usually do not have symptoms of liver problems, although they may have very mild liver disease. The signs and symptoms of liver disease include yellowing of the skin or whites of the eyes (jaundice), fatigue, loss of appetite, and abdominal swelling. Nervous system or psychiatric problems are often the i"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Wilson disease?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Wilson disease",
+        "sim": 0.776,
+        "nota": 2,
+        "texto": "Wilson disease is an inherited disorder in which excessive amounts of copper accumulate in the body, particularly in the liver, brain, and eyes. The signs and symptoms of Wilson disease usually first appear between the ages of 6 and 45, but they most often begin during the teenage years. The features of this condition include a combination of liver disease and neurological and psychiatric problems"
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.749,
+        "nota": 2,
+        "texto": "Wilson disease (WD) is a rare inherited disorder of copper metabolism in which excessive amounts of copper accumulate in the body. The buildup of copper leads to damage in the liver, brain, and eyes. Although copper accumulation begins at birth, symptoms of the disorder only appear later in life. The most characteristic sign of WD is the Kayser-Fleisher ring a rusty brown ring around the cornea of"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.724,
+        "nota": 2,
+        "texto": "Wilson disease is caused by changes (mutations) in the ATP7B gene. This gene encodes a protein that plays an important role in the transport of copper from the liver to the rest of the body. It also helps remove excess copper from the body. Mutations in the ATP7B gene prevent this protein from working properly, which can lead to an accumulation of copper in the body. Because high levels of copper "
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.737,
+        "nota": 1,
+        "texto": "Wilson disease can affect many different systems of the body. Affected people often develop signs and symptoms of chronic liver disease in their teenaged years or early twenties. These features may include jaundice; abnormal fluid retention which can lead to swelling of the legs and/or abdomen; weight loss; nausea and vomiting; and/or fatigue. Unfortunately, some people may not experience any sign"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.722,
+        "nota": 1,
+        "texto": "of Wilson disease in affected children and young adults; individuals diagnosed at an older age usually do not have symptoms of liver problems, although they may have very mild liver disease. The signs and symptoms of liver disease include yellowing of the skin or whites of the eyes (jaundice), fatigue, loss of appetite, and abdominal swelling. Nervous system or psychiatric problems are often the i"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is WAGR syndrome?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.746,
+        "nota": 2,
+        "texto": "WAGR syndrome is caused by a deletion of genetic material on the short (p) arm of chromosome 11. The size of the deletion varies among affected individuals. The signs and symptoms of WAGR syndrome are related to the loss of multiple genes on the short arm of chromosome 11. WAGR syndrome is often described as a contiguous gene deletion syndrome because it results from the loss of several neighborin"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.725,
+        "nota": 0,
+        "texto": "WAGRO syndrome. People with WAGRO syndrome may be at greater risk of neurological problems such as intellectual disability and autism than those with WAGR syndrome. It is unclear whether this increased risk is due to the loss of the BDNF gene or other nearby genes. Research is ongoing to identify additional genes deleted in people with WAGR syndrome and to determine how their loss leads to the oth"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.716,
+        "nota": 2,
+        "texto": "deleted in people with the typical signs and symptoms of this disorder. Because changes in the PAX6 gene can affect eye development, researchers think that the loss of the PAX6 gene is responsible for the characteristic eye features of WAGR syndrome. The PAX6 gene may also affect brain development. Wilms tumor and genitourinary abnormalities are often the result of mutations in the WT1 gene, so de"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.711,
+        "nota": 1,
+        "texto": "The prevalence of WAGR syndrome ranges from 1 in 500,000 to one million individuals. It is estimated that one-third of people with aniridia actually have WAGR syndrome. Approximately 7 in 1,000 cases of Wilms tumor can be attributed to WAGR syndrome."
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.683,
+        "nota": 1,
+        "texto": "90% Cataract 50% Cryptorchidism 50% Displacement of the external urethral meatus 50% Hearing abnormality 50% Hypospadias 50% Intellectual disability 50% Microcephaly 50% Nephroblastoma (Wilms tumor) 50% Nystagmus 50% Ptosis 50% Short stature 50% Visual impairment 50% Nephropathy 40% Abnormality of the vagina 33% Streak ovary 33% Abnormality of the uterus 7.5% Glaucoma 7.5% Gonadoblastoma 7.5% Hern"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is WAGR syndrome?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.746,
+        "nota": 2,
+        "texto": "WAGR syndrome is caused by a deletion of genetic material on the short (p) arm of chromosome 11. The size of the deletion varies among affected individuals. The signs and symptoms of WAGR syndrome are related to the loss of multiple genes on the short arm of chromosome 11. WAGR syndrome is often described as a contiguous gene deletion syndrome because it results from the loss of several neighborin"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.725,
+        "nota": 0,
+        "texto": "WAGRO syndrome. People with WAGRO syndrome may be at greater risk of neurological problems such as intellectual disability and autism than those with WAGR syndrome. It is unclear whether this increased risk is due to the loss of the BDNF gene or other nearby genes. Research is ongoing to identify additional genes deleted in people with WAGR syndrome and to determine how their loss leads to the oth"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.716,
+        "nota": 2,
+        "texto": "deleted in people with the typical signs and symptoms of this disorder. Because changes in the PAX6 gene can affect eye development, researchers think that the loss of the PAX6 gene is responsible for the characteristic eye features of WAGR syndrome. The PAX6 gene may also affect brain development. Wilms tumor and genitourinary abnormalities are often the result of mutations in the WT1 gene, so de"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.711,
+        "nota": 1,
+        "texto": "The prevalence of WAGR syndrome ranges from 1 in 500,000 to one million individuals. It is estimated that one-third of people with aniridia actually have WAGR syndrome. Approximately 7 in 1,000 cases of Wilms tumor can be attributed to WAGR syndrome."
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.683,
+        "nota": 1,
+        "texto": "90% Cataract 50% Cryptorchidism 50% Displacement of the external urethral meatus 50% Hearing abnormality 50% Hypospadias 50% Intellectual disability 50% Microcephaly 50% Nephroblastoma (Wilms tumor) 50% Nystagmus 50% Ptosis 50% Short stature 50% Visual impairment 50% Nephropathy 40% Abnormality of the vagina 33% Streak ovary 33% Abnormality of the uterus 7.5% Glaucoma 7.5% Gonadoblastoma 7.5% Hern"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is WAGR syndrome?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.746,
+        "nota": 2,
+        "texto": "WAGR syndrome is caused by a deletion of genetic material on the short (p) arm of chromosome 11. The size of the deletion varies among affected individuals. The signs and symptoms of WAGR syndrome are related to the loss of multiple genes on the short arm of chromosome 11. WAGR syndrome is often described as a contiguous gene deletion syndrome because it results from the loss of several neighborin"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.716,
+        "nota": 2,
+        "texto": "deleted in people with the typical signs and symptoms of this disorder. Because changes in the PAX6 gene can affect eye development, researchers think that the loss of the PAX6 gene is responsible for the characteristic eye features of WAGR syndrome. The PAX6 gene may also affect brain development. Wilms tumor and genitourinary abnormalities are often the result of mutations in the WT1 gene, so de"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.711,
+        "nota": 1,
+        "texto": "The prevalence of WAGR syndrome ranges from 1 in 500,000 to one million individuals. It is estimated that one-third of people with aniridia actually have WAGR syndrome. Approximately 7 in 1,000 cases of Wilms tumor can be attributed to WAGR syndrome."
+      }
+    ]
+  },
+  {
+    "pregunta": "What is WAGR syndrome?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.746,
+        "nota": 2,
+        "texto": "WAGR syndrome is caused by a deletion of genetic material on the short (p) arm of chromosome 11. The size of the deletion varies among affected individuals. The signs and symptoms of WAGR syndrome are related to the loss of multiple genes on the short arm of chromosome 11. WAGR syndrome is often described as a contiguous gene deletion syndrome because it results from the loss of several neighborin"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.716,
+        "nota": 2,
+        "texto": "deleted in people with the typical signs and symptoms of this disorder. Because changes in the PAX6 gene can affect eye development, researchers think that the loss of the PAX6 gene is responsible for the characteristic eye features of WAGR syndrome. The PAX6 gene may also affect brain development. Wilms tumor and genitourinary abnormalities are often the result of mutations in the WT1 gene, so de"
+      },
+      {
+        "focus": "WAGR syndrome",
+        "sim": 0.711,
+        "nota": 1,
+        "texto": "The prevalence of WAGR syndrome ranges from 1 in 500,000 to one million individuals. It is estimated that one-third of people with aniridia actually have WAGR syndrome. Approximately 7 in 1,000 cases of Wilms tumor can be attributed to WAGR syndrome."
+      }
+    ]
+  },
+  {
+    "pregunta": "What is colpocephaly?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Colpocephaly",
+        "sim": 0.726,
+        "nota": 2,
+        "texto": "Colpocephaly is characterized by a small head circumference and in many cases, intellectual disability. Other signs and symptoms may include movement abnormalities, muscle spasms, and seizures. Poor vision, speech and language difficulties, deafness, and chorioretinitis have been described in individual cases. Cases of people with colpocephaly and normal neurological and motor development have als"
+      },
+      {
+        "focus": "Colpocephaly",
+        "sim": 0.626,
+        "nota": 1,
+        "texto": "such as corticosteroids, salbutamol, and theophylline. In addition, a familial occurrence of colpocephaly has been noted in three reports. A genetic origin with an autosomal recessive or X-linked recessive inheritance was suggested in these familial cases."
+      },
+      {
+        "focus": "Holoprosencephaly",
+        "sim": 0.565,
+        "nota": 0,
+        "texto": "separates closely-set eyes. Cebocephaly, another facial anomaly, is characterized by a small, flattened nose with a single nostril situated below incomplete or underdeveloped closely-set eyes."
+      },
+      {
+        "focus": "Holoprosencephaly",
+        "sim": 0.556,
+        "nota": 0,
+        "texto": "cases of lobar holoprosencephaly the baby's brain may be nearly normal. The least severe of the facial anomalies is the median cleft lip (premaxillary agenesis). The most severe is cyclopia, an abnormality characterized by a single eye located in the area normally occupied by the root of the nose, and a missing nose or a proboscis (a tubular-shaped nose) located above the eye. The least common fac"
+      },
+      {
+        "focus": "nonsyndromic holoprosencephaly",
+        "sim": 0.554,
+        "nota": 0,
+        "texto": "People with nonsyndromic holoprosencephaly often have a small head (microcephaly), although they can develop a buildup of fluid in the brain (hydrocephalus) that causes increased head size (macrocephaly). Other features may include an opening in the roof of the mouth (cleft palate) with or without a split in the upper lip (cleft lip), one central front tooth instead of two (a single maxillary cent"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is colpocephaly?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Colpocephaly",
+        "sim": 0.726,
+        "nota": 2,
+        "texto": "Colpocephaly is characterized by a small head circumference and in many cases, intellectual disability. Other signs and symptoms may include movement abnormalities, muscle spasms, and seizures. Poor vision, speech and language difficulties, deafness, and chorioretinitis have been described in individual cases. Cases of people with colpocephaly and normal neurological and motor development have als"
+      },
+      {
+        "focus": "Colpocephaly",
+        "sim": 0.626,
+        "nota": 1,
+        "texto": "such as corticosteroids, salbutamol, and theophylline. In addition, a familial occurrence of colpocephaly has been noted in three reports. A genetic origin with an autosomal recessive or X-linked recessive inheritance was suggested in these familial cases."
+      }
+    ]
+  },
+  {
+    "pregunta": "What is colpocephaly?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Colpocephaly",
+        "sim": 0.726,
+        "nota": 2,
+        "texto": "Colpocephaly is characterized by a small head circumference and in many cases, intellectual disability. Other signs and symptoms may include movement abnormalities, muscle spasms, and seizures. Poor vision, speech and language difficulties, deafness, and chorioretinitis have been described in individual cases. Cases of people with colpocephaly and normal neurological and motor development have als"
+      },
+      {
+        "focus": "Colpocephaly",
+        "sim": 0.626,
+        "nota": 1,
+        "texto": "such as corticosteroids, salbutamol, and theophylline. In addition, a familial occurrence of colpocephaly has been noted in three reports. A genetic origin with an autosomal recessive or X-linked recessive inheritance was suggested in these familial cases."
+      }
+    ]
+  },
+  {
+    "pregunta": "What is colpocephaly?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Colpocephaly",
+        "sim": 0.726,
+        "nota": 2,
+        "texto": "Colpocephaly is characterized by a small head circumference and in many cases, intellectual disability. Other signs and symptoms may include movement abnormalities, muscle spasms, and seizures. Poor vision, speech and language difficulties, deafness, and chorioretinitis have been described in individual cases. Cases of people with colpocephaly and normal neurological and motor development have als"
+      },
+      {
+        "focus": "Colpocephaly",
+        "sim": 0.626,
+        "nota": 1,
+        "texto": "such as corticosteroids, salbutamol, and theophylline. In addition, a familial occurrence of colpocephaly has been noted in three reports. A genetic origin with an autosomal recessive or X-linked recessive inheritance was suggested in these familial cases."
+      }
+    ]
+  },
+  {
+    "pregunta": "What causes headaches?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Headache",
+        "sim": 0.605,
+        "nota": 2,
+        "texto": "Almost everyone has had a headache. Headache is the most common form of pain. It's a major reason people miss days at work or school or visit the doctor. The most common type of headache is a tension headache. Tension headaches are due to tight muscles in your shoulders, neck, scalp and jaw. They are often related to stress, depression or anxiety. You are more likely to get tension headaches if yo"
+      },
+      {
+        "focus": "Headache",
+        "sim": 0.526,
+        "nota": 0,
+        "texto": "a headache after a blow to your head, or if you have a headache along with a stiff neck, fever, confusion, loss of consciousness, or pain in the eye or ear. NIH: National Institute of Neurological Disorders and Stroke"
+      },
+      {
+        "focus": "Basilar migraine",
+        "sim": 0.515,
+        "nota": 0,
+        "texto": "The exact underlying cause of basilar migraines is not well understood. Basilar migraines, like all types of migraines, are likely complex disorders that are influenced by multiple genes in combination with lifestyle and environmental factors. Scientists also suspect that nerve abnormalities and/or altered blood flow to certain parts of the brain (brainstem and occipital lobes, specifically) may a"
+      },
+      {
+        "focus": "SUNCT Headache",
+        "sim": 0.511,
+        "nota": 0,
+        "texto": "typically occur in daytime hours and last from 5 seconds to 4 minutes per episode. Individuals generally have five to six attacks per hour. Autonomic nervous system responses include watery eyes, reddish or bloodshot eyes caused by dilation of blood vessels (conjunctival injection), nasal congestion, runny nose, sweaty forehead, swelling of the eyelids, and increased pressure within the eye on the"
+      },
+      {
+        "focus": "SUNCT Headache",
+        "sim": 0.498,
+        "nota": 0,
+        "texto": "may rise during the attacks. Movement of the neck may trigger these headaches. SUNCT may be a form of trigeminal neuralgia and is considered one of the trigeminal autonomic cephalgias, or TACs."
+      }
+    ]
+  },
+  {
+    "pregunta": "What causes headaches?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Headache",
+        "sim": 0.604,
+        "nota": 2,
+        "texto": "Almost everyone has had a headache. Headache is the most common form of pain. It's a major reason people miss days at work or school or visit the doctor. The most common type of headache is a tension headache. Tension headaches are due to tight muscles in your shoulders, neck, scalp and jaw. They are often related to stress, depression or anxiety. You are more likely to get tension headaches if yo"
+      },
+      {
+        "focus": "Headache",
+        "sim": 0.526,
+        "nota": 0,
+        "texto": "a headache after a blow to your head, or if you have a headache along with a stiff neck, fever, confusion, loss of consciousness, or pain in the eye or ear. NIH: National Institute of Neurological Disorders and Stroke"
+      },
+      {
+        "focus": "Basilar migraine",
+        "sim": 0.515,
+        "nota": 0,
+        "texto": "The exact underlying cause of basilar migraines is not well understood. Basilar migraines, like all types of migraines, are likely complex disorders that are influenced by multiple genes in combination with lifestyle and environmental factors. Scientists also suspect that nerve abnormalities and/or altered blood flow to certain parts of the brain (brainstem and occipital lobes, specifically) may a"
+      },
+      {
+        "focus": "SUNCT Headache",
+        "sim": 0.511,
+        "nota": 0,
+        "texto": "typically occur in daytime hours and last from 5 seconds to 4 minutes per episode. Individuals generally have five to six attacks per hour. Autonomic nervous system responses include watery eyes, reddish or bloodshot eyes caused by dilation of blood vessels (conjunctival injection), nasal congestion, runny nose, sweaty forehead, swelling of the eyelids, and increased pressure within the eye on the"
+      },
+      {
+        "focus": "SUNCT Headache",
+        "sim": 0.498,
+        "nota": 0,
+        "texto": "may rise during the attacks. Movement of the neck may trigger these headaches. SUNCT may be a form of trigeminal neuralgia and is considered one of the trigeminal autonomic cephalgias, or TACs."
+      }
+    ]
+  },
+  {
+    "pregunta": "What causes headaches?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Headache",
+        "sim": 0.604,
+        "nota": 2,
+        "texto": "Almost everyone has had a headache. Headache is the most common form of pain. It's a major reason people miss days at work or school or visit the doctor. The most common type of headache is a tension headache. Tension headaches are due to tight muscles in your shoulders, neck, scalp and jaw. They are often related to stress, depression or anxiety. You are more likely to get tension headaches if yo"
+      },
+      {
+        "focus": "Cyclic Vomiting Syndrome",
+        "sim": 0.439,
+        "nota": 1,
+        "texto": "birthday parties, holidays, family conflicts, or travel - infections, such as a sinus infection, a respiratory infection, or the flu - eating certain foods, such as chocolate or cheese, or additives such as caffeine, nitritescommonly found in cured meats such as hot dogsand monosodium glutamate, also called MSG - hot weather - menstrual periods - motion sickness - overeating, fasting, or eating ri"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.483,
+        "nota": 1,
+        "texto": "and dietary substances. Migraine in some women may relate to changes in hormones and hormonal levels during their menstrual cycle. For many years, scientists believed that migraines were linked to the dilation and constriction of blood vessels in the head. Investigators now believe that migraine has a genetic cause."
+      },
+      {
+        "focus": "sporadic hemiplegic migraine",
+        "sim": 0.462,
+        "nota": 1,
+        "texto": "Sporadic hemiplegic migraine is a rare form of migraine headache. Migraines typically cause intense, throbbing pain in one area of the head. Some people with migraines also experience nausea, vomiting, and sensitivity to light and sound. These recurrent headaches typically begin in childhood or adolescence and can be triggered by certain foods, emotional stress, and minor head trauma. Each headach"
+      },
+      {
+        "focus": "Migraine",
+        "sim": 0.46,
+        "nota": 1,
+        "texto": "The pain of a migraine headache is often described as an intense pulsing or throbbing pain in one area of the head. However, it is much more; the International Headache Society diagnoses a migraine by its pain and number of attacks (at least 5, lasting 4-72 hours if untreated), and additional symptoms including nausea and/or vomiting, or sensitivity to both light and sound. Migraine is three times"
+      }
+    ]
+  },
+  {
+    "pregunta": "What causes headaches?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Headache",
+        "sim": 0.605,
+        "nota": 2,
+        "texto": "Almost everyone has had a headache. Headache is the most common form of pain. It's a major reason people miss days at work or school or visit the doctor. The most common type of headache is a tension headache. Tension headaches are due to tight muscles in your shoulders, neck, scalp and jaw. They are often related to stress, depression or anxiety. You are more likely to get tension headaches if yo"
+      },
+      {
+        "focus": "Basilar migraine",
+        "sim": 0.515,
+        "nota": 1,
+        "texto": "The exact underlying cause of basilar migraines is not well understood. Basilar migraines, like all types of migraines, are likely complex disorders that are influenced by multiple genes in combination with lifestyle and environmental factors. Scientists also suspect that nerve abnormalities and/or altered blood flow to certain parts of the brain (brainstem and occipital lobes, specifically) may a"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is cystic fibrosis?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.738,
+        "nota": 2,
+        "texto": "Cystic fibrosis (SIS-tik fi-BRO-sis), or CF, is an inherited disease of the secretory (see-KREH-tor-ee) glands. Secretory glands include glands that make mucus and sweat. \"Inherited\" means the disease is passed from parents to children through genes. People who have CF inherit two faulty genes for the diseaseone from each parent. The parents likely don't have the disease themselves. CF mainly affe"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.707,
+        "nota": 2,
+        "texto": "Cystic fibrosis is an inherited disease characterized by the buildup of thick, sticky mucus that can damage many of the body's organs. The disorder's most common signs and symptoms include progressive damage to the respiratory system and chronic digestive system problems. The features of the disorder and their severity varies among affected individuals. Mucus is a slippery substance that lubricate"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.701,
+        "nota": 2,
+        "texto": "system, reproductive system, and other organs and tissues. In people with cystic fibrosis, the body produces mucus that is abnormally thick and sticky. This abnormal mucus can clog the airways, leading to severe problems with breathing and bacterial infections in the lungs. These infections cause chronic coughing, wheezing, and inflammation. Over time, mucus buildup and infections result in perman"
+      },
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.688,
+        "nota": 2,
+        "texto": "The buildup of mucus makes it easy for bacteria to grow. This leads to repeated, serious lung infections. Over time, these infections can severely damage your lungs. The thick, sticky mucus also can block tubes, or ducts, in your pancreas (an organ in your abdomen). As a result, the digestive enzymes that your pancreas makes can't reach your small intestine. These enzymes help break down food. Wit"
+      },
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.665,
+        "nota": 1,
+        "texto": "pregnant. (The term \"infertility\" refers to the inability to have children.) Outlook The symptoms and severity of CF vary. If you or your child has the disease, you may have serious lung and digestive problems. If the disease is mild, symptoms may not show up until the teen or adult years. The symptoms and severity of CF also vary over time. Sometimes you'll have few symptoms. Other times, your sy"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is cystic fibrosis?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.738,
+        "nota": 2,
+        "texto": "Cystic fibrosis (SIS-tik fi-BRO-sis), or CF, is an inherited disease of the secretory (see-KREH-tor-ee) glands. Secretory glands include glands that make mucus and sweat. \"Inherited\" means the disease is passed from parents to children through genes. People who have CF inherit two faulty genes for the diseaseone from each parent. The parents likely don't have the disease themselves. CF mainly affe"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.707,
+        "nota": 2,
+        "texto": "Cystic fibrosis is an inherited disease characterized by the buildup of thick, sticky mucus that can damage many of the body's organs. The disorder's most common signs and symptoms include progressive damage to the respiratory system and chronic digestive system problems. The features of the disorder and their severity varies among affected individuals. Mucus is a slippery substance that lubricate"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.701,
+        "nota": 2,
+        "texto": "system, reproductive system, and other organs and tissues. In people with cystic fibrosis, the body produces mucus that is abnormally thick and sticky. This abnormal mucus can clog the airways, leading to severe problems with breathing and bacterial infections in the lungs. These infections cause chronic coughing, wheezing, and inflammation. Over time, mucus buildup and infections result in perman"
+      },
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.688,
+        "nota": 2,
+        "texto": "The buildup of mucus makes it easy for bacteria to grow. This leads to repeated, serious lung infections. Over time, these infections can severely damage your lungs. The thick, sticky mucus also can block tubes, or ducts, in your pancreas (an organ in your abdomen). As a result, the digestive enzymes that your pancreas makes can't reach your small intestine. These enzymes help break down food. Wit"
+      },
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.665,
+        "nota": 1,
+        "texto": "pregnant. (The term \"infertility\" refers to the inability to have children.) Outlook The symptoms and severity of CF vary. If you or your child has the disease, you may have serious lung and digestive problems. If the disease is mild, symptoms may not show up until the teen or adult years. The symptoms and severity of CF also vary over time. Sometimes you'll have few symptoms. Other times, your sy"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is cystic fibrosis?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.738,
+        "nota": 2,
+        "texto": "Cystic fibrosis (SIS-tik fi-BRO-sis), or CF, is an inherited disease of the secretory (see-KREH-tor-ee) glands. Secretory glands include glands that make mucus and sweat. \"Inherited\" means the disease is passed from parents to children through genes. People who have CF inherit two faulty genes for the diseaseone from each parent. The parents likely don't have the disease themselves. CF mainly affe"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.707,
+        "nota": 2,
+        "texto": "Cystic fibrosis is an inherited disease characterized by the buildup of thick, sticky mucus that can damage many of the body's organs. The disorder's most common signs and symptoms include progressive damage to the respiratory system and chronic digestive system problems. The features of the disorder and their severity varies among affected individuals. Mucus is a slippery substance that lubricate"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.701,
+        "nota": 2,
+        "texto": "system, reproductive system, and other organs and tissues. In people with cystic fibrosis, the body produces mucus that is abnormally thick and sticky. This abnormal mucus can clog the airways, leading to severe problems with breathing and bacterial infections in the lungs. These infections cause chronic coughing, wheezing, and inflammation. Over time, mucus buildup and infections result in perman"
+      },
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.688,
+        "nota": 2,
+        "texto": "The buildup of mucus makes it easy for bacteria to grow. This leads to repeated, serious lung infections. Over time, these infections can severely damage your lungs. The thick, sticky mucus also can block tubes, or ducts, in your pancreas (an organ in your abdomen). As a result, the digestive enzymes that your pancreas makes can't reach your small intestine. These enzymes help break down food. Wit"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.638,
+        "nota": 2,
+        "texto": "freely flowing mucus. Mutations in the CFTR gene disrupt the function of the chloride channels, preventing them from regulating the flow of chloride ions and water across cell membranes. As a result, cells that line the passageways of the lungs, pancreas, and other organs produce mucus that is unusually thick and sticky. This mucus clogs the airways and various ducts, causing the characteristic si"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is cystic fibrosis?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.738,
+        "nota": 2,
+        "texto": "Cystic fibrosis (SIS-tik fi-BRO-sis), or CF, is an inherited disease of the secretory (see-KREH-tor-ee) glands. Secretory glands include glands that make mucus and sweat. \"Inherited\" means the disease is passed from parents to children through genes. People who have CF inherit two faulty genes for the diseaseone from each parent. The parents likely don't have the disease themselves. CF mainly affe"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.707,
+        "nota": 2,
+        "texto": "Cystic fibrosis is an inherited disease characterized by the buildup of thick, sticky mucus that can damage many of the body's organs. The disorder's most common signs and symptoms include progressive damage to the respiratory system and chronic digestive system problems. The features of the disorder and their severity varies among affected individuals. Mucus is a slippery substance that lubricate"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.701,
+        "nota": 2,
+        "texto": "system, reproductive system, and other organs and tissues. In people with cystic fibrosis, the body produces mucus that is abnormally thick and sticky. This abnormal mucus can clog the airways, leading to severe problems with breathing and bacterial infections in the lungs. These infections cause chronic coughing, wheezing, and inflammation. Over time, mucus buildup and infections result in perman"
+      },
+      {
+        "focus": "Cystic Fibrosis",
+        "sim": 0.688,
+        "nota": 1,
+        "texto": "The buildup of mucus makes it easy for bacteria to grow. This leads to repeated, serious lung infections. Over time, these infections can severely damage your lungs. The thick, sticky mucus also can block tubes, or ducts, in your pancreas (an organ in your abdomen). As a result, the digestive enzymes that your pancreas makes can't reach your small intestine. These enzymes help break down food. Wit"
+      },
+      {
+        "focus": "cystic fibrosis",
+        "sim": 0.638,
+        "nota": 2,
+        "texto": "freely flowing mucus. Mutations in the CFTR gene disrupt the function of the chloride channels, preventing them from regulating the flow of chloride ions and water across cell membranes. As a result, cells that line the passageways of the lungs, pancreas, and other organs produce mucus that is unusually thick and sticky. This mucus clogs the airways and various ducts, causing the characteristic si"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is triploidy?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Triploidy",
+        "sim": 0.783,
+        "nota": 2,
+        "texto": "Triploidy is a chromosome abnormality that occurs when there is an extra set of chromosomes present in each cell. Most pregnancies affected by triploidy are lost through early miscarriage. However, reports exist of some affected babies living up to five months. Those that survive are often mosaic. The signs and symptoms associated with triploidy vary but may include a variety of birth defects and "
+      },
+      {
+        "focus": "Triploidy",
+        "sim": 0.699,
+        "nota": 0,
+        "texto": "run in families and is not associated with maternal or paternal age. Treatment is based on the signs and symptoms present in each person."
+      },
+      {
+        "focus": "Trisomy 2 mosaicism",
+        "sim": 0.506,
+        "nota": 0,
+        "texto": "Trisomy 2 mosaicism is a rare chromosome condition caused by the presence of an extra copy of chromosome 2 in a subset of a persons cells. Many cases of trisomy 2 mosaicism result in spontaneous abortion or miscarriage during pregnancy. In live born infants, signs and symptoms vary widely but generally include poor growth of the baby while in the womb and multiple birth defects. Trisomy 2 mosaicis"
+      },
+      {
+        "focus": "Mosaic trisomy 9",
+        "sim": 0.505,
+        "nota": 0,
+        "texto": "the embryo grows and divides, an attempt may be made to correct the mistake by eliminating one extra chromosome 9. In people with mosaic trisomy 9, this attempt may be partly successful, leaving some cells with an extra chromosome 9 and some cells with the extra chromosome deleted (the usual chromosome number). This correction process is called trisomy rescue. In other cases, the egg and sperm may"
+      },
+      {
+        "focus": "Mosaic trisomy 9",
+        "sim": 0.504,
+        "nota": 0,
+        "texto": "of cell division (nondisjunction) occurs when the fertilized egg is growing and dividing. If an error occurs during one of the divisions, it can cause some cells to have an abnormal number of chromosomes. In people affected by mosaic trisomy 9, some of the body's cells have the usual two copies of chromosome 9, and other cells have three copies of this chromosome (trisomy). The percentage of cells"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is triploidy?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Triploidy",
+        "sim": 0.783,
+        "nota": 2,
+        "texto": "Triploidy is a chromosome abnormality that occurs when there is an extra set of chromosomes present in each cell. Most pregnancies affected by triploidy are lost through early miscarriage. However, reports exist of some affected babies living up to five months. Those that survive are often mosaic. The signs and symptoms associated with triploidy vary but may include a variety of birth defects and "
+      },
+      {
+        "focus": "Triploidy",
+        "sim": 0.699,
+        "nota": 1,
+        "texto": "run in families and is not associated with maternal or paternal age. Treatment is based on the signs and symptoms present in each person."
+      }
+    ]
+  },
+  {
+    "pregunta": "What is triploidy?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Triploidy",
+        "sim": 0.783,
+        "nota": 2,
+        "texto": "Triploidy is a chromosome abnormality that occurs when there is an extra set of chromosomes present in each cell. Most pregnancies affected by triploidy are lost through early miscarriage. However, reports exist of some affected babies living up to five months. Those that survive are often mosaic. The signs and symptoms associated with triploidy vary but may include a variety of birth defects and "
+      }
+    ]
+  },
+  {
+    "pregunta": "What is triploidy?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Triploidy",
+        "sim": 0.783,
+        "nota": 2,
+        "texto": "Triploidy is a chromosome abnormality that occurs when there is an extra set of chromosomes present in each cell. Most pregnancies affected by triploidy are lost through early miscarriage. However, reports exist of some affected babies living up to five months. Those that survive are often mosaic. The signs and symptoms associated with triploidy vary but may include a variety of birth defects and "
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Caffey disease?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Caffey disease",
+        "sim": 0.721,
+        "nota": 2,
+        "texto": "infant is 5 months old. In rare cases, skeletal abnormalities can be detected by ultrasound imaging during the last few weeks of development before birth. Lethal prenatal cortical hyperostosis, a more severe disorder that appears earlier in development and is often fatal before or shortly after birth, is sometimes called lethal prenatal Caffey disease; however, it is generally considered to be a s"
+      },
+      {
+        "focus": "carnitine-acylcarnitine translocase deficiency",
+        "sim": 0.563,
+        "nota": 0,
+        "texto": "Carnitine-acylcarnitine translocase (CACT) deficiency is a condition that prevents the body from using certain fats for energy, particularly during periods without food (fasting). Signs and symptoms of this disorder usually begin soon after birth and may include breathing problems, seizures, and an irregular heartbeat (arrhythmia). Affected individuals typically have low blood sugar (hypoglycemia)"
+      },
+      {
+        "focus": "carnitine-acylcarnitine translocase deficiency",
+        "sim": 0.557,
+        "nota": 0,
+        "texto": "the breakdown of fats and used for energy. Together these signs are called hypoketotic hypoglycemia. People with CACT deficiency also usually have excess ammonia in the blood (hyperammonemia), an enlarged liver (hepatomegaly), and a weakened heart muscle (cardiomyopathy). Many infants with CACT deficiency do not survive the newborn period. Some affected individuals have a less severe form of the c"
+      },
+      {
+        "focus": "Kufs disease",
+        "sim": 0.531,
+        "nota": 0,
+        "texto": "or dysarthria. The signs and symptoms of Kufs disease worsen over time, and affected individuals usually survive about 15 years after the disorder begins. Kufs disease is one of a group of disorders known as neuronal ceroid lipofuscinoses (NCLs), which are also known as Batten disease. These disorders affect the nervous system and typically cause progressive problems with vision, movement, and thi"
+      },
+      {
+        "focus": "Hereditary cerebral hemorrhage with amyloidosis",
+        "sim": 0.522,
+        "nota": 0,
+        "texto": "Cerebral amyloid angiopathy (CAA) is a neurological condition in which amyloid protein is deposited onto the walls of the arteries of the brain (and less frequently, veins). Although CAA often does not cause symptoms, it may cause bleeding into the brain (hemorrhagic stroke), dementia, or neurologic episodes in some patients. The majority of CAA cases occur in individuals who do not have a family "
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Caffey disease?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Caffey disease",
+        "sim": 0.721,
+        "nota": 2,
+        "texto": "infant is 5 months old. In rare cases, skeletal abnormalities can be detected by ultrasound imaging during the last few weeks of development before birth. Lethal prenatal cortical hyperostosis, a more severe disorder that appears earlier in development and is often fatal before or shortly after birth, is sometimes called lethal prenatal Caffey disease; however, it is generally considered to be a s"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Caffey disease?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Caffey disease",
+        "sim": 0.721,
+        "nota": 2,
+        "texto": "infant is 5 months old. In rare cases, skeletal abnormalities can be detected by ultrasound imaging during the last few weeks of development before birth. Lethal prenatal cortical hyperostosis, a more severe disorder that appears earlier in development and is often fatal before or shortly after birth, is sometimes called lethal prenatal Caffey disease; however, it is generally considered to be a s"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Caffey disease?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Caffey disease",
+        "sim": 0.721,
+        "nota": 2,
+        "texto": "infant is 5 months old. In rare cases, skeletal abnormalities can be detected by ultrasound imaging during the last few weeks of development before birth. Lethal prenatal cortical hyperostosis, a more severe disorder that appears earlier in development and is often fatal before or shortly after birth, is sometimes called lethal prenatal Caffey disease; however, it is generally considered to be a s"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Hermansky-Pudlak syndrome?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.772,
+        "nota": 2,
+        "texto": "The Human Phenotype Ontology provides the following list of signs and symptoms for Hermansky-Pudlak syndrome. If the information is available, the table below includes how often the symptom is seen in people with this condition. You can use the MedlinePlus Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Abnor"
+      },
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.737,
+        "nota": 1,
+        "texto": "Hermansky-Pudlak syndrome is a disorder characterized by a condition called oculocutaneous albinism, which causes abnormally light coloring (pigmentation) of the skin, hair, and eyes. Affected individuals typically have fair skin and white or light-colored hair. People with this disorder have a higher than average risk of skin damage and skin cancers caused by long-term sun exposure. Oculocutaneou"
+      },
+      {
+        "focus": "Hermansky Pudlak syndrome 2",
+        "sim": 0.737,
+        "nota": 1,
+        "texto": "The Human Phenotype Ontology provides the following list of signs and symptoms for Hermansky Pudlak syndrome 2. If the information is available, the table below includes how often the symptom is seen in people with this condition. You can use the MedlinePlus Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Abe"
+      },
+      {
+        "focus": "Hermansky Pudlak syndrome 2",
+        "sim": 0.726,
+        "nota": 1,
+        "texto": "- Albinism - Autosomal recessive inheritance - Carious teeth - Coarse facial features - Congenital onset - Fair hair - Hepatomegaly - Hip dysplasia - Intellectual disability, mild - Long philtrum - Low-set ears - Microcephaly - Motor delay - Neutropenia - Nystagmus - Ocular albinism - Periodontitis - Photophobia - Posteriorly rotated ears - Pulmonary fibrosis - Recurrent bacterial infections - Red"
+      },
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.714,
+        "nota": 0,
+        "texto": "neutrophils 7.5% Abnormality of the eyelashes 7.5% Abnormality of thrombocytes 7.5% Gastrointestinal hemorrhage 7.5% Hyperkeratosis 7.5% Hypertrophic cardiomyopathy 7.5% Inflammation of the large intestine 7.5% Malabsorption 7.5% Melanocytic nevus 7.5% Neoplasm of the skin 7.5% Respiratory insufficiency 7.5% Weight loss 7.5% Abnormality of the hair - Albinism - Autosomal recessive inheritance - Ca"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Hermansky-Pudlak syndrome?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.772,
+        "nota": 2,
+        "texto": "The Human Phenotype Ontology provides the following list of signs and symptoms for Hermansky-Pudlak syndrome. If the information is available, the table below includes how often the symptom is seen in people with this condition. You can use the MedlinePlus Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Abnor"
+      },
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.737,
+        "nota": 1,
+        "texto": "Hermansky-Pudlak syndrome is a disorder characterized by a condition called oculocutaneous albinism, which causes abnormally light coloring (pigmentation) of the skin, hair, and eyes. Affected individuals typically have fair skin and white or light-colored hair. People with this disorder have a higher than average risk of skin damage and skin cancers caused by long-term sun exposure. Oculocutaneou"
+      },
+      {
+        "focus": "Hermansky Pudlak syndrome 2",
+        "sim": 0.737,
+        "nota": 1,
+        "texto": "The Human Phenotype Ontology provides the following list of signs and symptoms for Hermansky Pudlak syndrome 2. If the information is available, the table below includes how often the symptom is seen in people with this condition. You can use the MedlinePlus Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Abe"
+      },
+      {
+        "focus": "Hermansky Pudlak syndrome 2",
+        "sim": 0.726,
+        "nota": 1,
+        "texto": "- Albinism - Autosomal recessive inheritance - Carious teeth - Coarse facial features - Congenital onset - Fair hair - Hepatomegaly - Hip dysplasia - Intellectual disability, mild - Long philtrum - Low-set ears - Microcephaly - Motor delay - Neutropenia - Nystagmus - Ocular albinism - Periodontitis - Photophobia - Posteriorly rotated ears - Pulmonary fibrosis - Recurrent bacterial infections - Red"
+      },
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.714,
+        "nota": 0,
+        "texto": "neutrophils 7.5% Abnormality of the eyelashes 7.5% Abnormality of thrombocytes 7.5% Gastrointestinal hemorrhage 7.5% Hyperkeratosis 7.5% Hypertrophic cardiomyopathy 7.5% Inflammation of the large intestine 7.5% Malabsorption 7.5% Melanocytic nevus 7.5% Neoplasm of the skin 7.5% Respiratory insufficiency 7.5% Weight loss 7.5% Abnormality of the hair - Albinism - Autosomal recessive inheritance - Ca"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Hermansky-Pudlak syndrome?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.737,
+        "nota": 2,
+        "texto": "Hermansky-Pudlak syndrome is a disorder characterized by a condition called oculocutaneous albinism, which causes abnormally light coloring (pigmentation) of the skin, hair, and eyes. Affected individuals typically have fair skin and white or light-colored hair. People with this disorder have a higher than average risk of skin damage and skin cancers caused by long-term sun exposure. Oculocutaneou"
+      },
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.772,
+        "nota": 2,
+        "texto": "The Human Phenotype Ontology provides the following list of signs and symptoms for Hermansky-Pudlak syndrome. If the information is available, the table below includes how often the symptom is seen in people with this condition. You can use the MedlinePlus Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Abnor"
+      }
+    ]
+  },
+  {
+    "pregunta": "What is Hermansky-Pudlak syndrome?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.737,
+        "nota": 2,
+        "texto": "Hermansky-Pudlak syndrome is a disorder characterized by a condition called oculocutaneous albinism, which causes abnormally light coloring (pigmentation) of the skin, hair, and eyes. Affected individuals typically have fair skin and white or light-colored hair. People with this disorder have a higher than average risk of skin damage and skin cancers caused by long-term sun exposure. Oculocutaneou"
+      },
+      {
+        "focus": "Hermansky-Pudlak syndrome",
+        "sim": 0.772,
+        "nota": 2,
+        "texto": "The Human Phenotype Ontology provides the following list of signs and symptoms for Hermansky-Pudlak syndrome. If the information is available, the table below includes how often the symptom is seen in people with this condition. You can use the MedlinePlus Medical Dictionary to look up the definitions for these medical terms. Signs and Symptoms Approximate number of patients (when available) Abnor"
+      },
+      {
+        "focus": "Hermansky Pudlak syndrome 2",
+        "sim": 0.726,
+        "nota": 1,
+        "texto": "- Albinism - Autosomal recessive inheritance - Carious teeth - Coarse facial features - Congenital onset - Fair hair - Hepatomegaly - Hip dysplasia - Intellectual disability, mild - Long philtrum - Low-set ears - Microcephaly - Motor delay - Neutropenia - Nystagmus - Ocular albinism - Periodontitis - Photophobia - Posteriorly rotated ears - Pulmonary fibrosis - Recurrent bacterial infections - Red"
+      }
+    ]
+  },
+  {
+    "pregunta": "How is Peyronie's disease treated?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.781,
+        "nota": 2,
+        "texto": "Medical therapies. A urologist may use medical therapies to break up scar tissue and decrease plaque size and curvature. Therapies to break up scar tissue may include - high-intensity, focused ultrasound directed at the plaque - radiation therapyhigh-energy rays, such as x rays, aimed at the plaque - shockwave therapyfocused, low-intensity electroshock waves directed at the plaque A urologist may "
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.781,
+        "nota": 2,
+        "texto": "the risk of ED associated with Peyronies disease. Nonsurgical Treatments Nonsurgical treatments include medications and medical therapies. Medications. A urologist may prescribe medications aimed at decreasing a mans penile curvature, plaque size, and inflammation. A man may take prescribed medications to treat Peyronies disease orallyby mouthor a urologist may inject medications directly into the"
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.777,
+        "nota": 2,
+        "texto": "A urologist may treat Peyronies disease with nonsurgical treatments or surgery. The goal of treatment is to reduce pain and restore and maintain the ability to have intercourse. Men with small plaques, minimal penile curvature, no pain, and satisfactory sexual function may not need treatment until symptoms get worse. Peyronies disease often resolves on its own without treatment. A urologist may re"
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.775,
+        "nota": 2,
+        "texto": "disease is different in each man. A urologist may recommend the following surgeries: - grafting. A urologist will cut or remove the plaque and attach a patch of skin, a vein, or material made from animal organs in its place. This procedure may straighten the penis and restore some lost length from Peyronies disease. However, some men may experience numbness of the penis and ED after the procedure."
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.771,
+        "nota": 2,
+        "texto": "current that delivers medications through the skin over the plaqueto decrease plaque size and curvature. A urologist may use mechanical traction and vacuum devices aimed at stretching or bending the penis to reduce curvature. Surgery A urologist may recommend surgery to remove plaque or help straighten the penis during an erection. Medical experts recommend surgery for long-term cases when - sympt"
+      }
+    ]
+  },
+  {
+    "pregunta": "How is Peyronie's disease treated?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.781,
+        "nota": 2,
+        "texto": "Medical therapies. A urologist may use medical therapies to break up scar tissue and decrease plaque size and curvature. Therapies to break up scar tissue may include - high-intensity, focused ultrasound directed at the plaque - radiation therapyhigh-energy rays, such as x rays, aimed at the plaque - shockwave therapyfocused, low-intensity electroshock waves directed at the plaque A urologist may "
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.781,
+        "nota": 2,
+        "texto": "the risk of ED associated with Peyronies disease. Nonsurgical Treatments Nonsurgical treatments include medications and medical therapies. Medications. A urologist may prescribe medications aimed at decreasing a mans penile curvature, plaque size, and inflammation. A man may take prescribed medications to treat Peyronies disease orallyby mouthor a urologist may inject medications directly into the"
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.777,
+        "nota": 2,
+        "texto": "A urologist may treat Peyronies disease with nonsurgical treatments or surgery. The goal of treatment is to reduce pain and restore and maintain the ability to have intercourse. Men with small plaques, minimal penile curvature, no pain, and satisfactory sexual function may not need treatment until symptoms get worse. Peyronies disease often resolves on its own without treatment. A urologist may re"
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.775,
+        "nota": 2,
+        "texto": "disease is different in each man. A urologist may recommend the following surgeries: - grafting. A urologist will cut or remove the plaque and attach a patch of skin, a vein, or material made from animal organs in its place. This procedure may straighten the penis and restore some lost length from Peyronies disease. However, some men may experience numbness of the penis and ED after the procedure."
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.771,
+        "nota": 2,
+        "texto": "current that delivers medications through the skin over the plaqueto decrease plaque size and curvature. A urologist may use mechanical traction and vacuum devices aimed at stretching or bending the penis to reduce curvature. Surgery A urologist may recommend surgery to remove plaque or help straighten the penis during an erection. Medical experts recommend surgery for long-term cases when - sympt"
+      }
+    ]
+  },
+  {
+    "pregunta": "How is Peyronie's disease treated?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.781,
+        "nota": 2,
+        "texto": "Medical therapies. A urologist may use medical therapies to break up scar tissue and decrease plaque size and curvature. Therapies to break up scar tissue may include - high-intensity, focused ultrasound directed at the plaque - radiation therapyhigh-energy rays, such as x rays, aimed at the plaque - shockwave therapyfocused, low-intensity electroshock waves directed at the plaque A urologist may "
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.781,
+        "nota": 2,
+        "texto": "the risk of ED associated with Peyronies disease. Nonsurgical Treatments Nonsurgical treatments include medications and medical therapies. Medications. A urologist may prescribe medications aimed at decreasing a mans penile curvature, plaque size, and inflammation. A man may take prescribed medications to treat Peyronies disease orallyby mouthor a urologist may inject medications directly into the"
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.777,
+        "nota": 2,
+        "texto": "A urologist may treat Peyronies disease with nonsurgical treatments or surgery. The goal of treatment is to reduce pain and restore and maintain the ability to have intercourse. Men with small plaques, minimal penile curvature, no pain, and satisfactory sexual function may not need treatment until symptoms get worse. Peyronies disease often resolves on its own without treatment. A urologist may re"
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.775,
+        "nota": 2,
+        "texto": "disease is different in each man. A urologist may recommend the following surgeries: - grafting. A urologist will cut or remove the plaque and attach a patch of skin, a vein, or material made from animal organs in its place. This procedure may straighten the penis and restore some lost length from Peyronies disease. However, some men may experience numbness of the penis and ED after the procedure."
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.771,
+        "nota": 2,
+        "texto": "current that delivers medications through the skin over the plaqueto decrease plaque size and curvature. A urologist may use mechanical traction and vacuum devices aimed at stretching or bending the penis to reduce curvature. Surgery A urologist may recommend surgery to remove plaque or help straighten the penis during an erection. Medical experts recommend surgery for long-term cases when - sympt"
+      }
+    ]
+  },
+  {
+    "pregunta": "How is Peyronie's disease treated?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.781,
+        "nota": 2,
+        "texto": "Medical therapies. A urologist may use medical therapies to break up scar tissue and decrease plaque size and curvature. Therapies to break up scar tissue may include - high-intensity, focused ultrasound directed at the plaque - radiation therapyhigh-energy rays, such as x rays, aimed at the plaque - shockwave therapyfocused, low-intensity electroshock waves directed at the plaque A urologist may "
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.781,
+        "nota": 2,
+        "texto": "the risk of ED associated with Peyronies disease. Nonsurgical Treatments Nonsurgical treatments include medications and medical therapies. Medications. A urologist may prescribe medications aimed at decreasing a mans penile curvature, plaque size, and inflammation. A man may take prescribed medications to treat Peyronies disease orallyby mouthor a urologist may inject medications directly into the"
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.777,
+        "nota": 2,
+        "texto": "A urologist may treat Peyronies disease with nonsurgical treatments or surgery. The goal of treatment is to reduce pain and restore and maintain the ability to have intercourse. Men with small plaques, minimal penile curvature, no pain, and satisfactory sexual function may not need treatment until symptoms get worse. Peyronies disease often resolves on its own without treatment. A urologist may re"
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.775,
+        "nota": 2,
+        "texto": "disease is different in each man. A urologist may recommend the following surgeries: - grafting. A urologist will cut or remove the plaque and attach a patch of skin, a vein, or material made from animal organs in its place. This procedure may straighten the penis and restore some lost length from Peyronies disease. However, some men may experience numbness of the penis and ED after the procedure."
+      },
+      {
+        "focus": "Peyronie's Disease",
+        "sim": 0.771,
+        "nota": 2,
+        "texto": "current that delivers medications through the skin over the plaqueto decrease plaque size and curvature. A urologist may use mechanical traction and vacuum devices aimed at stretching or bending the penis to reduce curvature. Surgery A urologist may recommend surgery to remove plaque or help straighten the penis during an erection. Medical experts recommend surgery for long-term cases when - sympt"
+      }
+    ]
+  },
+  {
+    "pregunta": "What causes copper to build up in the liver and brain?",
+    "config": "A_base",
+    "chunks": [
+      {
+        "focus": "Wilson disease",
+        "sim": 0.515,
+        "nota": 2,
+        "texto": "body. Mutations in the ATP7B gene prevent the transport protein from functioning properly. With a shortage of functional protein, excess copper is not removed from the body. As a result, copper accumulates to toxic levels that can damage tissues and organs, particularly the liver and brain. Research indicates that a normal variation in the PRNP gene may modify the course of Wilson disease. The PRN"
+      },
+      {
+        "focus": "What I need to know about Cirrhosis",
+        "sim": 0.513,
+        "nota": 1,
+        "texto": "that are passed from parent to childcan cause cirrhosis: - hemochromatosis, a disease that causes iron to collect in the liver - Wilson disease, a condition that causes copper to build up in the liver - porphyria, a disorder that affects the skin, bone marrow, and liver"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.509,
+        "nota": 2,
+        "texto": "Wilson disease is an inherited disorder in which excessive amounts of copper accumulate in the body, particularly in the liver, brain, and eyes. The signs and symptoms of Wilson disease usually first appear between the ages of 6 and 45, but they most often begin during the teenage years. The features of this condition include a combination of liver disease and neurological and psychiatric problems"
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.506,
+        "nota": 2,
+        "texto": "Wilson disease (WD) is a rare inherited disorder of copper metabolism in which excessive amounts of copper accumulate in the body. The buildup of copper leads to damage in the liver, brain, and eyes. Although copper accumulation begins at birth, symptoms of the disorder only appear later in life. The most characteristic sign of WD is the Kayser-Fleisher ring a rusty brown ring around the cornea of"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.498,
+        "nota": 2,
+        "texto": "Wilson disease is caused by changes (mutations) in the ATP7B gene. This gene encodes a protein that plays an important role in the transport of copper from the liver to the rest of the body. It also helps remove excess copper from the body. Mutations in the ATP7B gene prevent this protein from working properly, which can lead to an accumulation of copper in the body. Because high levels of copper "
+      }
+    ]
+  },
+  {
+    "pregunta": "What causes copper to build up in the liver and brain?",
+    "config": "B_corte",
+    "chunks": [
+      {
+        "focus": "Wilson disease",
+        "sim": 0.515,
+        "nota": 2,
+        "texto": "body. Mutations in the ATP7B gene prevent the transport protein from functioning properly. With a shortage of functional protein, excess copper is not removed from the body. As a result, copper accumulates to toxic levels that can damage tissues and organs, particularly the liver and brain. Research indicates that a normal variation in the PRNP gene may modify the course of Wilson disease. The PRN"
+      },
+      {
+        "focus": "What I need to know about Cirrhosis",
+        "sim": 0.513,
+        "nota": 1,
+        "texto": "that are passed from parent to childcan cause cirrhosis: - hemochromatosis, a disease that causes iron to collect in the liver - Wilson disease, a condition that causes copper to build up in the liver - porphyria, a disorder that affects the skin, bone marrow, and liver"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.509,
+        "nota": 2,
+        "texto": "Wilson disease is an inherited disorder in which excessive amounts of copper accumulate in the body, particularly in the liver, brain, and eyes. The signs and symptoms of Wilson disease usually first appear between the ages of 6 and 45, but they most often begin during the teenage years. The features of this condition include a combination of liver disease and neurological and psychiatric problems"
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.506,
+        "nota": 2,
+        "texto": "Wilson disease (WD) is a rare inherited disorder of copper metabolism in which excessive amounts of copper accumulate in the body. The buildup of copper leads to damage in the liver, brain, and eyes. Although copper accumulation begins at birth, symptoms of the disorder only appear later in life. The most characteristic sign of WD is the Kayser-Fleisher ring a rusty brown ring around the cornea of"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.498,
+        "nota": 2,
+        "texto": "Wilson disease is caused by changes (mutations) in the ATP7B gene. This gene encodes a protein that plays an important role in the transport of copper from the liver to the rest of the body. It also helps remove excess copper from the body. Mutations in the ATP7B gene prevent this protein from working properly, which can lead to an accumulation of copper in the body. Because high levels of copper "
+      }
+    ]
+  },
+  {
+    "pregunta": "What causes copper to build up in the liver and brain?",
+    "config": "C_rerank",
+    "chunks": [
+      {
+        "focus": "Wilson disease",
+        "sim": 0.515,
+        "nota": 2,
+        "texto": "body. Mutations in the ATP7B gene prevent the transport protein from functioning properly. With a shortage of functional protein, excess copper is not removed from the body. As a result, copper accumulates to toxic levels that can damage tissues and organs, particularly the liver and brain. Research indicates that a normal variation in the PRNP gene may modify the course of Wilson disease. The PRN"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.509,
+        "nota": 2,
+        "texto": "Wilson disease is an inherited disorder in which excessive amounts of copper accumulate in the body, particularly in the liver, brain, and eyes. The signs and symptoms of Wilson disease usually first appear between the ages of 6 and 45, but they most often begin during the teenage years. The features of this condition include a combination of liver disease and neurological and psychiatric problems"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.498,
+        "nota": 2,
+        "texto": "Wilson disease is caused by changes (mutations) in the ATP7B gene. This gene encodes a protein that plays an important role in the transport of copper from the liver to the rest of the body. It also helps remove excess copper from the body. Mutations in the ATP7B gene prevent this protein from working properly, which can lead to an accumulation of copper in the body. Because high levels of copper "
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.506,
+        "nota": 2,
+        "texto": "Wilson disease (WD) is a rare inherited disorder of copper metabolism in which excessive amounts of copper accumulate in the body. The buildup of copper leads to damage in the liver, brain, and eyes. Although copper accumulation begins at birth, symptoms of the disorder only appear later in life. The most characteristic sign of WD is the Kayser-Fleisher ring a rusty brown ring around the cornea of"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.464,
+        "nota": 2,
+        "texto": "Wilson disease is caused by mutations in the ATP7B gene. This gene provides instructions for making a protein called copper-transporting ATPase 2, which plays a role in the transport of copper from the liver to other parts of the body. Copper is necessary for many cellular functions, but it is toxic when present in excessive amounts. The copper-transporting ATPase 2 protein is particularly importa"
+      }
+    ]
+  },
+  {
+    "pregunta": "What causes copper to build up in the liver and brain?",
+    "config": "D_corte_rerank",
+    "chunks": [
+      {
+        "focus": "Wilson disease",
+        "sim": 0.515,
+        "nota": 2,
+        "texto": "body. Mutations in the ATP7B gene prevent the transport protein from functioning properly. With a shortage of functional protein, excess copper is not removed from the body. As a result, copper accumulates to toxic levels that can damage tissues and organs, particularly the liver and brain. Research indicates that a normal variation in the PRNP gene may modify the course of Wilson disease. The PRN"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.509,
+        "nota": 2,
+        "texto": "Wilson disease is an inherited disorder in which excessive amounts of copper accumulate in the body, particularly in the liver, brain, and eyes. The signs and symptoms of Wilson disease usually first appear between the ages of 6 and 45, but they most often begin during the teenage years. The features of this condition include a combination of liver disease and neurological and psychiatric problems"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.498,
+        "nota": 2,
+        "texto": "Wilson disease is caused by changes (mutations) in the ATP7B gene. This gene encodes a protein that plays an important role in the transport of copper from the liver to the rest of the body. It also helps remove excess copper from the body. Mutations in the ATP7B gene prevent this protein from working properly, which can lead to an accumulation of copper in the body. Because high levels of copper "
+      },
+      {
+        "focus": "Wilson Disease",
+        "sim": 0.506,
+        "nota": 2,
+        "texto": "Wilson disease (WD) is a rare inherited disorder of copper metabolism in which excessive amounts of copper accumulate in the body. The buildup of copper leads to damage in the liver, brain, and eyes. Although copper accumulation begins at birth, symptoms of the disorder only appear later in life. The most characteristic sign of WD is the Kayser-Fleisher ring a rusty brown ring around the cornea of"
+      },
+      {
+        "focus": "Wilson disease",
+        "sim": 0.464,
+        "nota": 2,
+        "texto": "Wilson disease is caused by mutations in the ATP7B gene. This gene provides instructions for making a protein called copper-transporting ATPase 2, which plays a role in the transport of copper from the liver to other parts of the body. Copper is necessary for many cellular functions, but it is toxic when present in excessive amounts. The copper-transporting ATPase 2 protein is particularly importa"
+      }
+    ]
+  }
+]

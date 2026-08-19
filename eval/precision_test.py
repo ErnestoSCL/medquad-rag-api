@@ -44,10 +44,15 @@ print(f"precision@5 media: {total_rel}/{len(CASOS)*5} = {100*total_rel/(len(CASO
 print(f"\nsimilitud de chunks RELEVANTES   : min {min(rel_sims):.3f}  media {sum(rel_sims)/len(rel_sims):.3f}  max {max(rel_sims):.3f}")
 if irr_sims:
     print(f"similitud de chunks IRRELEVANTES : min {min(irr_sims):.3f}  media {sum(irr_sims)/len(irr_sims):.3f}  max {max(irr_sims):.3f}")
-    print(f"\n?Se pueden separar con un umbral fijo?")
-    print(f"  peor relevante   : {min(rel_sims):.3f}")
+    print(f"\n?Se pueden separar con un umbral?")
+    print(f"  peor relevante  : {min(rel_sims):.3f}")
     print(f"  mejor irrelevante: {max(irr_sims):.3f}")
     if min(rel_sims) > max(irr_sims):
-        print(f"  -> SI. Umbral ~{(min(rel_sims)+max(irr_sims))/2:.3f}")
+        print(f"  -> SI, hay separacion limpia. Umbral ~{(min(rel_sims)+max(irr_sims))/2:.3f}")
     else:
-        print(f"  -> NO, se solapan. Ver relative_cutoff.py")
+        print(f"  -> NO, se solapan. Un umbral perderia relevantes.")
+        # cuanto se perderia con distintos umbrales
+        for u in (0.45, 0.50, 0.55, 0.60):
+            perdidos = sum(1 for s in rel_sims if s < u)
+            filtrados = sum(1 for s in irr_sims if s < u)
+            print(f"     umbral {u}: filtra {filtrados}/{len(irr_sims)} irrelevantes, pierde {perdidos}/{len(rel_sims)} relevantes")

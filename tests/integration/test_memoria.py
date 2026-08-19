@@ -73,13 +73,15 @@ def test_ventana_de_tres_turnos(sesion_limpia):
     """
     Se recuerdan las últimas 3 interacciones: 6 mensajes, y el más viejo queda
     fuera al agregar el cuarto.
+
+    `guardar_interaccion` recibe usuario y conversación por separado; acá se usa
+    el mismo id para las dos, que es lo que hace el endpoint /ask.
     """
     from app.memory import cargar_historial, guardar_interaccion
 
-    guardar_interaccion(sesion_limpia, "primera", "r1")
-    guardar_interaccion(sesion_limpia, "segunda", "r2")
-    guardar_interaccion(sesion_limpia, "tercera", "r3")
-    guardar_interaccion(sesion_limpia, "cuarta", "r4")
+    for pregunta, respuesta in [("primera", "r1"), ("segunda", "r2"),
+                                ("tercera", "r3"), ("cuarta", "r4")]:
+        guardar_interaccion(sesion_limpia, sesion_limpia, pregunta, respuesta)
 
     historial = cargar_historial(sesion_limpia, turnos=3)
     contenidos = [m["content"] for m in historial]
@@ -90,8 +92,45 @@ def test_ventana_de_tres_turnos(sesion_limpia):
     assert contenidos.index("segunda") < contenidos.index("cuarta"), "orden cronológico"
 
 
-def test_session_id_vacio_no_rompe():
+def test_conversaciones_separan_el_historial(sesion_limpia):
+    """
+    Un mismo usuario puede tener varias conversaciones, y cada una arrastra solo
+    sus propios mensajes: es lo que permite la lista de la barra lateral.
+    """
+    from app.memory import borrar_conversacion, cargar_historial, crear_conversacion, guardar_interaccion
+
+    conv_a = crear_conversacion(sesion_limpia)
+    conv_b = crear_conversacion(sesion_limpia)
+    try:
+        guardar_interaccion(sesion_limpia, conv_a, "sobre asma", "respuesta A")
+        guardar_interaccion(sesion_limpia, conv_b, "sobre migraña", "respuesta B")
+
+        a = [m["content"] for m in cargar_historial(conv_a)]
+        b = [m["content"] for m in cargar_historial(conv_b)]
+
+        assert "sobre asma" in a and "sobre migraña" not in a
+        assert "sobre migraña" in b and "sobre asma" not in b
+    finally:
+        borrar_conversacion(conv_a)
+        borrar_conversacion(conv_b)
+
+
+def test_las_conversaciones_se_listan_para_la_barra_lateral(sesion_limpia):
+    from app.memory import crear_conversacion, listar_conversaciones, titular_conversacion
+
+    cid = crear_conversacion(sesion_limpia)
+    titular_conversacion(cid, "¿Qué es la enfermedad de Wilson?")
+
+    opciones = listar_conversaciones(sesion_limpia)
+    titulos = [t for t, _ in opciones]
+    ids = [i for _, i in opciones]
+
+    assert cid in ids
+    assert any("Wilson" in t for t in titulos), f"debería titularse con la pregunta: {titulos}"
+
+
+def test_ids_vacios_no_rompen():
     from app.memory import cargar_historial, guardar_interaccion
 
     assert cargar_historial("") == []
-    assert guardar_interaccion("", "p", "r") is False
+    assert guardar_interaccion("", "", "p", "r") is False

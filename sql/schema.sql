@@ -1,4 +1,5 @@
 -- Esquema de la base vectorial en Supabase (pgvector).
+-- Ya aplicado en el proyecto de Supabase; se versiona como referencia.
 
 create extension if not exists vector;
 
@@ -6,11 +7,6 @@ create extension if not exists vector;
 -- scripts/ingest_to_supabase.py y con OpenAIEmbeddings(dimensions=...) en
 -- app/rag_chain.py. Si las tres no están alineadas, pgvector rechaza la
 -- consulta por dimensión incompatible.
---
--- Por qué 512 y no las 1536 por defecto: con 1536 la base llegaba a 643 MB
--- contra el límite de 500 MB del free tier (93% del espacio eran vectores,
--- no datos). text-embedding-3-small admite truncar el vector con el parámetro
--- `dimensions` conservando la mayor parte de la información semántica.
 create table documents (
   id bigserial primary key,
   content text,             -- el chunk_text que se le pasa al LLM como contexto
@@ -18,24 +14,24 @@ create table documents (
                             -- ver scripts/ingest_to_supabase.py — content no cambia)
   metadata jsonb,           -- question, document_source, document_url, question_focus,
                             -- document_id, chunk_id, n_chunks
-  embedding vector(512)     -- text-embedding-3-small truncado a 512
+  embedding vector(512)     -- text-embedding-3-small truncado a 512 (ver abajo)
 );
 
 -- ------------------------------------------------------------
--- Índice IVFFlat — correr DESPUÉS de la ingesta (necesita los datos presentes
--- para calcular sus centroides).
+-- Índice IVFFlat — correr DESPUÉS de la ingesta.
 --
 -- Sin él, pgvector hace búsqueda exhaustiva exacta sobre los 38,127 vectores,
--- lo que excede el statement_timeout del free tier y aborta con
--- `57014 canceling statement due to statement timeout`. Medido: sin índice la
--- búsqueda tardaba entre 0.5 s y 5.6 s con timeouts intermitentes; con índice,
--- 0.34 s de media.
+-- lo que excede el statement_timeout del free tier de Supabase y aborta con
+-- `57014 canceling statement due to statement timeout`. (Con los 1536 dims
+-- originales eran ~230 MB a escanear por consulta; con 512 son ~78 MB, que
+-- podría llegar a entrar en el límite, pero el índice lo baja a ~50-200 ms.)
 --
--- Los dos `set` deben correrse en la MISMA sesión que el create index:
+-- Los dos `set` son obligatorios y deben correrse en la MISMA sesión que el
+-- create index:
 --   · maintenance_work_mem: la construcción toma una muestra de 50 × lists
---     vectores para el k-means. Con 1536 dims eran ~70 MB y fallaba con
---     `54000 memory required is 70 MB` contra el default de 32 MB; con 512
---     baja a ~24 MB y ya entraría, pero se deja explícito.
+--     vectores para el k-means. Con los 1536 dims originales eran ~70 MB y
+--     fallaba con `54000 memory required is 70 MB` contra el default de 32 MB;
+--     con 512 dims baja a ~24 MB y ya entraría, pero se deja explícito.
 --   · statement_timeout: la construcción también está sujeta al límite de 8 s.
 -- ------------------------------------------------------------
 set maintenance_work_mem = '128MB';

@@ -67,8 +67,8 @@ RELATIVE_CUTOFF = 0.80
 # sobre el tratamiento de Bell's palsy es del tema correcto pero no sirve para
 # responder por los síntomas, y el reranker lo descarta.
 #
-# Costo medido: +0.4 s por consulta. Para desactivarlo basta con
-# RERANK_ENABLED = False; el pipeline vuelve a similitud + corte relativo.
+# Costo medido: +0.4 s por consulta (1.8 s -> 2.2 s). Para desactivarlo basta
+# con RERANK_ENABLED = False; el pipeline vuelve a similitud + corte relativo.
 RERANK_ENABLED = True
 RERANK_CANDIDATES = 20
 
@@ -79,10 +79,26 @@ RERANK_CANDIDATES = 20
 # que el ahorro de tokens no justificaba el riesgo.
 RERANK_SNIPPET_CHARS = 1200
 
+# Red de seguridad contra abstenciones falsas: si el reranker descarta TODO
+# pero la búsqueda había traído material claramente pertinente, se usan los
+# mejores por similitud en vez de responder "no hay información".
+#
+# Hace falta porque el reranker es demasiado severo con los chunks en formato
+# de tabla. Con "¿mi madre puede tener Parkinson?" la búsqueda devolvía cinco
+# pasajes de Parkinson (similitud 0.656-0.675), varios de ellos listas del
+# Human Phenotype Ontology, y el reranker los rechazaba a todos: el usuario
+# recibía "no hay información suficiente" sobre un tema que sí está en el
+# corpus.
+#
+# El umbral sale de medir la separación entre ambos mundos:
+#   preguntas del corpus       0.593 - 0.736
+#   preguntas ajenas al corpus 0.192 - 0.287
+# El hueco es amplio, así que 0.45 rechaza lo ajeno con holgura.
+RERANK_FALLBACK_SIM = 0.45
+RERANK_FALLBACK_DOCS = 3
+
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-# El reranker trabaja en inglés a propósito: juzga pasajes en inglés con una
-# consulta ya traducida. Pasarle texto en español empeoraría la comparación.
 RERANK_PROMPT = (
     "You are ranking retrieved passages for a medical question.\n"
     "Select ONLY the passages that contain information useful to answer it, "
@@ -182,9 +198,15 @@ REFORMULATE_PROMPT = (
     "- Resolve pronouns and ellipsis using the conversation history: if the "
     "user asks a follow-up like \"and how is it treated?\", name the condition "
     "explicitly.\n"
-    "- Make it impersonal. Drop first-person framing: \"what causes my "
-    "headaches?\" becomes \"what causes headaches?\", \"I have migraines, what "
-    "can I take?\" becomes \"migraine treatment\".\n"
+    "- Make it impersonal. Strip every reference to the user or their family, "
+    "including possessives like \"my\", \"my child\", \"my mother\":\n"
+    "    \"what causes my headaches?\" -> \"what causes headaches?\"\n"
+    "    \"I have migraines, what can I take?\" -> \"migraine treatment\"\n"
+    "    \"will my child have asthma?\" -> \"is asthma hereditary risk factors\"\n"
+    "    \"does my mother have Parkinson's?\" -> \"Parkinson's disease symptoms\"\n"
+    "- A question about whether a specific person will get or has a disease is "
+    "really a question about that disease: rewrite it as a query about its "
+    "causes, risk factors, heredity or symptoms.\n"
     "- Keep it a question or a short noun phrase. Do not answer it.\n"
     "- Do not add information that the user did not provide.\n"
     "Reply with ONLY the rewritten query."
@@ -234,9 +256,12 @@ SYSTEM_PROMPT = (
     "Usa ÚNICAMENTE la información del contexto proporcionado, que está en "
     "inglés: tradúcela al español al responder. No uses conocimiento externo "
     "ni agregues datos que no estén en el contexto.\n"
-    "Las preguntas en primera persona (\"me duele la cabeza\", \"tengo "
-    "migrañas\") piden la información médica general del contexto, no un "
-    "diagnóstico personal: respóndelas con esa información general.\n"
+    "IMPORTANTE: nunca respondas \"No lo sé\" solo porque la pregunta menciona "
+    "a una persona concreta (\"me duele la cabeza\", \"¿mi madre puede tener "
+    "Parkinson?\", \"¿mi hijo tendrá asma?\"). No podés diagnosticar a nadie, "
+    "pero SÍ tenés que explicar lo que el contexto dice sobre esa enfermedad "
+    "—síntomas, causas, factores de riesgo, herencia— y aclarar que para un "
+    "diagnóstico hay que consultar a un profesional.\n"
     "Si el contexto no contiene la respuesta, responde exactamente: No lo sé."
 )
 
@@ -261,8 +286,8 @@ def answer_question(question: str, historial=None):
     k = RERANK_CANDIDATES if RERANK_ENABLED else TOP_K
     scored = vector_store.similarity_search_with_relevance_scores(consulta, k=k)
 
-    # Corte relativo primero: acota la entrada del reranker (ver arriba por qué
-    # sigue acá aunque no sea lo que decide la calidad).
+    # Corte relativo primero: descarta lo que está claramente lejos del mejor
+    # resultado, para no gastar tokens del reranker en candidatos malos.
     if scored:
         best = scored[0][1]
         scored = [(doc, s) for doc, s in scored if s >= RELATIVE_CUTOFF * best]
@@ -271,6 +296,16 @@ def answer_question(question: str, historial=None):
     # sobre chunks en inglés y compararlos contra texto español lo empeoraría.
     if RERANK_ENABLED:
         docs = _rerank(consulta, scored)
+
+        # Red de seguridad: el reranker descartó todo, pero la búsqueda había
+        # traído material claramente pertinente (ver RERANK_FALLBACK_SIM).
+        if not docs and scored and scored[0][1] >= RERANK_FALLBACK_SIM:
+            logger.info(
+                "el reranker descartó los %d candidatos con similitud %.3f; "
+                "se usan los mejores por similitud",
+                len(scored), scored[0][1],
+            )
+            docs = [doc for doc, _ in scored[:RERANK_FALLBACK_DOCS]]
     else:
         docs = [doc for doc, _ in scored[:TOP_K]]
 

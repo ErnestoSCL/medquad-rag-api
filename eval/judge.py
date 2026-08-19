@@ -4,8 +4,8 @@ Reemplaza la metrica de `precision_test.py`, que solo comparaba la clave contra
 `question_focus` y por lo tanto media coincidencia de etiquetas, no utilidad.
 
 Compara cuatro configuraciones para responder dos preguntas:
-  - El corte relativo aporta por si solo?           -> A vs B
-  - Sigue aportando cuando hay reranker, o estorba? -> C vs D
+  - ?El corte relativo aporta por si solo?          -> A vs B
+  - ?Sigue aportando cuando hay reranker, o estorba? -> C vs D
 
   A  similitud sola (k=5)
   B  similitud + corte relativo

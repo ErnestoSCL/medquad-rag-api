@@ -4,7 +4,7 @@ Sin red: `app.citations` solo usa urllib.parse.
 """
 import pytest
 
-from app.citations import formatear_cita, url_de_cita
+from app.citations import formatear_cita, fuentes_html, url_de_cita
 
 
 # ------------------------------------------------- dominios que siguen vivos
@@ -116,11 +116,7 @@ def test_formato_sin_fragmentos_cuando_hay_uno_solo():
     assert "fragmento" not in cita
 
 
-def test_formato_avisa_cuando_es_busqueda():
-    """
-    El usuario tiene que saber que el enlace lleva a una búsqueda y no al
-    documento exacto: presentarlo como la fuente literal sería engañoso.
-    """
+def test_formato_sustituye_la_url_muerta():
     cita = formatear_cita({
         "document_source": "GARD",
         "question_focus": "Wilson disease",
@@ -130,4 +126,50 @@ def test_formato_avisa_cuando_es_busqueda():
     })
     assert "(fragmento 3 de 8)" in cita
     assert "diseases?search=" in cita
-    assert "búsqueda en el sitio" in cita
+    assert "/gard/" not in cita
+
+
+# ------------------------------------------------------ bloque HTML del chat
+
+def test_fuentes_html_vacio_sin_documentos():
+    """Sin fuentes no debe quedar un separador suelto colgando de la respuesta."""
+    assert fuentes_html([]) == ""
+
+
+def test_fuentes_html_arma_enlaces():
+    html = fuentes_html([{
+        "document_source": "GHR",
+        "question_focus": "Wilson disease",
+        "document_url": "https://ghr.nlm.nih.gov/condition/wilson-disease",
+        "chunk_id": 0,
+        "n_chunks": 4,
+    }])
+    assert 'class="fuentes"' in html
+    assert 'href="https://ghr.nlm.nih.gov/condition/wilson-disease"' in html
+    assert 'target="_blank"' in html
+    assert "Wilson disease" in html
+    assert "fragmento 1 de 4" in html
+    assert "GHR" in html
+
+
+def test_fuentes_html_omite_fragmento_si_hay_uno_solo():
+    html = fuentes_html([{
+        "document_source": "GHR",
+        "question_focus": "Wilson disease",
+        "document_url": "https://ghr.nlm.nih.gov/condition/wilson-disease",
+        "chunk_id": 0,
+        "n_chunks": 1,
+    }])
+    assert "fragmento" not in html
+
+
+def test_fuentes_html_tambien_sustituye_urls_muertas():
+    html = fuentes_html([{
+        "document_source": "GARD",
+        "question_focus": "Wilson disease",
+        "document_url": "https://rarediseases.info.nih.gov/gard/7893/wilson-disease",
+        "chunk_id": 0,
+        "n_chunks": 2,
+    }])
+    assert "diseases?search=Wilson+disease" in html
+    assert "/gard/" not in html

@@ -89,7 +89,47 @@ def formatear_cita(metadata: dict) -> str:
     else:
         frag = ""
 
-    url, es_busqueda = url_de_cita(url_original, foco)
-    nota = " *(búsqueda en el sitio: el enlace original del dataset ya no existe)*" if es_busqueda else ""
+    url, _ = url_de_cita(url_original, foco)
+    return f"[{fuente}] {foco}{frag} — {url}"
 
-    return f"[{fuente}] {foco}{frag} — {url}{nota}"
+
+def fuentes_html(metadatos: list[dict]) -> str:
+    """
+    Bloque de fuentes para el chat, en HTML, con el nombre como enlace y el
+    resto como metadatos atenuados. Cadena vacía si no hay fuentes, para que la
+    respuesta no arrastre un separador suelto.
+
+    Las clases (`fuentes`, `fuente`, `fuente-meta`) están definidas en el CSS
+    de app/ui.py.
+    """
+    if not metadatos:
+        return ""
+
+    filas = []
+    for m in metadatos:
+        foco = m.get("question_focus") or "Fuente"
+        fuente = m.get("document_source") or ""
+        url, _ = url_de_cita(m.get("document_url") or "", foco)
+
+        n_chunks = m.get("n_chunks", 1) or 1
+        partes = [fuente] if fuente else []
+        if n_chunks > 1:
+            partes.append(f"fragmento {m['chunk_id'] + 1} de {n_chunks}")
+        meta = " · ".join(partes)
+
+        if url:
+            enlace = '<a href="' + url + '" target="_blank" rel="noopener">' + foco + "</a>"
+        else:
+            enlace = foco
+
+        # Sin f-strings anidadas con comillas escapadas: la imagen corre
+        # Python 3.11, donde eso es un SyntaxError (se permite recién en 3.12).
+        sufijo = ' <span class="fuente-meta">· ' + meta + "</span>" if meta else ""
+        filas.append('<div class="fuente">' + enlace + sufijo + "</div>")
+
+    return (
+        '\n\n<div class="fuentes">'
+        '<div class="fuentes-titulo">Fuentes</div>'
+        + "".join(filas)
+        + "</div>"
+    )

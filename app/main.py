@@ -81,16 +81,28 @@ def ask(payload: AskRequest):
 # ---------------------------------------------------------------- interfaz
 
 def _iniciar_sesion(user_id):
-    """Primera carga: asegura id de usuario y abre una conversación."""
-    user_id = user_id or nuevo_id()
+    """
+    Primera carga: recupera las conversaciones del usuario y abre la última.
+
+    No se crea una conversación acá. Antes se creaba una en cada carga, aunque
+    el usuario no escribiera nada, y la barra lateral se llenaba de entradas
+    "Nueva conversación" vacías. La conversación se crea en el primer mensaje
+    (ver _responder).
+    """
+    user_id = (user_id or "").strip() or nuevo_id()
     opciones = listar_conversaciones(user_id)
-    cid = opciones[0][1] if opciones else crear_conversacion(user_id)
-    return user_id, cid, listar_conversaciones(user_id)
+    cid = opciones[0][1] if opciones else ""
+    return user_id, cid, opciones
 
 
 def _responder(mensaje, historial_ui, user_id, conversation_id):
     """
-    Un turno de chat. Devuelve (entrada_vaciada, historial_ui, opciones).
+    Un turno de chat. Devuelve (entrada_vaciada, historial_ui, conversation_id).
+
+    No actualiza la lista de conversaciones: de eso se encarga _refrescar_lista
+    en un evento encadenado. Si la lista fuera output de esta función, Gradio
+    pintaría su indicador "processing" encima de la barra lateral mientras se
+    genera la respuesta, que es donde menos sentido tiene.
 
     `historial_ui` es lo que pinta Gradio; la fuente de verdad del backend es
     Supabase, que se consulta con el conversation_id.
@@ -114,9 +126,14 @@ def _responder(mensaje, historial_ui, user_id, conversation_id):
         guardar_interaccion(user_id, conversation_id, limpia, cruda)
         titular_conversacion(conversation_id, mensaje)
 
+    return "", historial_ui, conversation_id
+
+
+def _refrescar_lista(user_id, conversation_id):
+    """Repinta la barra lateral una vez que la respuesta ya está en pantalla."""
     opciones = listar_conversaciones(user_id)
-    return "", historial_ui, gr.update(choices=opciones, value=conversation_id)
+    return gr.update(choices=opciones, value=conversation_id or None)
 
 
-demo = construir(_responder, _iniciar_sesion)
+demo = construir(_responder, _iniciar_sesion, _refrescar_lista)
 app = gr.mount_gradio_app(app, demo, path="/")

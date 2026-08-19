@@ -53,8 +53,7 @@ fallos reales:
 
 | Test | Regresión que previene |
 |---|---|
-| `test_primera_persona_se_responde` | el generador leía "mis dolores de cabeza" como pedido de diagnóstico personal y se abstenía |
-| `test_la_consulta_de_busqueda_es_impersonal` | el reformulador conservaba el posesivo al traducir y el reranker descartaba los 20 pasajes |
+| `test_primera_persona_se_responde` | el prompt original leía "mis dolores de cabeza" como pedido de diagnóstico personal y se abstenía |
 | `test_pii_se_elimina_y_la_pregunta_se_responde` | el placeholder `[NOMBRE_OCULTO]` degradaba la búsqueda y hacía abstenerse al modelo |
 | `test_fuera_del_corpus_se_abstiene_sin_citar` | sin contexto, el modelo respondía de memoria y sin fuentes |
 | `test_tema_con_un_solo_chunk_no_rellena_citas` | se mostraban 5 fuentes cuando solo una era del tema |

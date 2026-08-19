@@ -41,24 +41,27 @@ for ratio in (0.70, 0.75, 0.80, 0.85, 0.90):
     for _, filas in datos:
         top = filas[0][0]
         for sim, es_rel in filas:
-            if sim >= ratio * top:
+            pasa = sim >= ratio * top
+            if pasa:
                 quedan_tot += 1
                 quedan_rel += es_rel
-            elif es_rel:
-                perdidos += 1
             else:
-                filtrados += 1
+                if es_rel:
+                    perdidos += 1
+                else:
+                    filtrados += 1
     tot_irr = sum(1 for _, f in datos for _, r_ in f if not r_)
     tot_rel = sum(1 for _, f in datos for _, r_ in f if r_)
     prec = 100 * quedan_rel / quedan_tot if quedan_tot else 0
     print(f"{ratio:>6} {filtrados:>10}/{tot_irr:<13} {perdidos:>10}/{tot_rel:<11}   {prec:.0f}%")
 
-print("\n--- detalle con ratio 0.80 (el implementado) ---")
+print("\n--- detalle con ratio 0.80 ---")
 for pregunta, filas in datos:
     top = filas[0][0]
     marcas = []
     for sim, es_rel in filas:
+        pasa = sim >= 0.80 * top
         simbolo = ("+" if es_rel else "-") + f"{sim:.3f}"
-        marcas.append(simbolo if sim >= 0.80 * top else f"[{simbolo}]")
+        marcas.append(simbolo if pasa else f"[{simbolo}]")
     print(f"  {pregunta[:44]:46} {' '.join(marcas)}")
 print("\n  (+ relevante, - irrelevante, [x] = descartado por el corte)")

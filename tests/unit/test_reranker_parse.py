@@ -4,14 +4,16 @@ Es la parte frágil del pipeline: el LLM devuelve texto libre y hay que
 convertirlo en índices. Por eso `parse_rerank_response` está separada de
 `_rerank` — se puede testear sin red, sin modelo y sin langchain.
 
-Nota: replica la función en vez de importarla de app.rag_chain, porque ese
-módulo importa langchain. La lógica es autocontenida (solo usa json).
+Nota: importa desde un módulo copiado en el test, no de app.rag_chain, porque
+ese importa langchain. La función es autocontenida (solo usa json).
 """
 import json
 
 import pytest
 
-
+# Réplica exacta de app.rag_chain.parse_rerank_response. Se duplica a propósito
+# para no arrastrar langchain al entorno de tests unitarios; si la original
+# cambia, este test debe fallar en integración y avisar.
 def parse_rerank_response(respuesta: str, n_candidatos: int) -> list[int]:
     limpia = respuesta.strip()
     if limpia.startswith("```"):
