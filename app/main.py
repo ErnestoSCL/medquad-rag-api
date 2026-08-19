@@ -3,6 +3,7 @@ import gradio as gr
 
 from app.schemas import AskRequest, AskResponse
 from app.rag_chain import answer_question
+from app.citations import formatear_cita
 from app.memory import (
     cargar_historial,
     guardar_interaccion,
@@ -49,11 +50,10 @@ def ask(payload: AskRequest):
     if final_answer.startswith(INSUFFICIENT_INFO_MSG):
         docs = []
 
-    citations = []
-    for d in docs:
-        m = d.metadata
-        frag = f" (fragmento {m['chunk_id'] + 1} de {m['n_chunks']})" if m.get("n_chunks", 1) > 1 else ""
-        citations.append(f"[{m.get('document_source')}] {m.get('question_focus')}{frag} — {m.get('document_url')}")
+    # Ver app/citations.py: ~49% de las URLs del dataset (2017) ya no existen
+    # porque los sitios del NIH se reorganizaron. Para esos dominios se enlaza
+    # al buscador del sitio en vez de a la URL muerta.
+    citations = [formatear_cita(d.metadata) for d in docs]
 
     # Se guarda la pregunta ya sin PII: el historial vive en la base de datos y
     # no debe contener datos personales.
