@@ -243,6 +243,13 @@ tests/            unitarios e integración
 scripts/          ingesta del parquet a Supabase (se corre una sola vez)
 sql/schema.sql    documents + ivfflat + match_documents + chat_history + conversations
 ```
+## Evidencias Funcionales
+
+### Inicio de Chatbot
+<img width="1860" height="938" alt="image" src="https://github.com/user-attachments/assets/0a2fb1d8-0fb4-4128-be29-858dbf897551" />
+
+### Conversacion con Chatbot
+<img width="1853" height="926" alt="image" src="https://github.com/user-attachments/assets/8a1f2029-909f-477c-8211-785b0ed43f63" />
 
 ## Aviso
 
