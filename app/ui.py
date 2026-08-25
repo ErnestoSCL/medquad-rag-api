@@ -389,17 +389,56 @@ footer, .built-with, .show-api { display: none !important; }
 
 /* ---------------------------- fuentes citadas -------------------------- */
 .fuentes {
-    margin-top: 16px; padding-top: 10px;
+    display: flex; align-items: center; gap: 12px;
+    margin-top: 22px; padding-top: 14px;
     border-top: 1px solid var(--border-color-primary);
 }
 .fuentes-titulo {
-    text-transform: uppercase; letter-spacing: .07em;
-    font-size: .65rem; opacity: .45; margin-bottom: 7px;
+    display: flex; align-items: center; flex: 0 0 auto; gap: 8px;
+    text-transform: uppercase; letter-spacing: .09em;
+    font-size: .64rem; font-weight: 600; opacity: .58;
 }
-.fuente { font-size: .78rem; line-height: 1.75; }
-.fuente a { text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; }
-.fuente a:hover { border-bottom-color: currentColor; }
-.fuente-meta { opacity: .5; }
+.fuentes-titulo::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--body-text-color); opacity: .7;
+    box-shadow: 10px 0 0 var(--body-text-color), 5px 7px 0 var(--body-text-color);
+    margin-right: 8px;
+}
+.fuentes-list { display: flex; align-items: center; min-width: 0; }
+.fuente {
+    position: relative; display: grid; place-items: center;
+    flex: 0 0 28px; width: 28px; height: 28px; padding: 0;
+    margin-left: -5px; border: 2px solid var(--background-fill-primary);
+    border-radius: 50%; background: var(--background-fill-secondary);
+    color: var(--body-text-color); text-decoration: none;
+    font-size: .7rem; line-height: 1;
+    transition: transform .16s ease, background .16s ease, z-index .16s ease;
+}
+.fuente:first-child { margin-left: 0; }
+.fuente:hover, .fuente:focus-visible {
+    z-index: 2; background: var(--body-text-color);
+    color: var(--background-fill-primary); transform: translateY(-2px);
+    outline: none;
+}
+.fuente-indice {
+    display: grid; place-items: center; width: 100%; height: 100%;
+    font-weight: 600;
+}
+.fuente::after {
+    content: attr(aria-label); position: absolute; left: 50%; bottom: calc(100% + 9px);
+    z-index: 3; width: max-content; max-width: 240px; padding: 7px 9px;
+    border: 1px solid var(--border-color-primary); border-radius: 7px;
+    background: var(--background-fill-secondary); color: var(--body-text-color);
+    box-shadow: 0 6px 18px rgba(0,0,0,.22); font-size: .72rem; line-height: 1.3;
+    pointer-events: none; opacity: 0; transform: translate(-50%, 4px);
+    transition: opacity .14s ease, transform .14s ease;
+}
+.fuente:hover::after, .fuente:focus-visible::after {
+    opacity: 1; transform: translate(-50%, 0);
+}
+@media (max-width: 480px) {
+    .fuentes { gap: 8px; }
+}
 """
 
 
