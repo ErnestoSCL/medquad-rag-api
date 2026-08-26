@@ -107,3 +107,37 @@ def test_sin_session_id_funciona(preguntar):
     r = preguntar("¿Qué es la diabetes?")
     assert r["citations"]
     assert ABSTENCION not in r["answer"]
+
+
+# ------------------------------------------------------------------
+# Consultas con varios síntomas
+# ------------------------------------------------------------------
+# Regresión de dos fallos encadenados. El primero: una sola búsqueda por los
+# síntomas fusionados ("headache and sore throat causes") no se parece a ningún
+# chunk del corpus, que trata un tema por documento, y el sistema se abstenía.
+# Se resolvió con una búsqueda por tema y fusión de resultados.
+#
+# El segundo lo introduje al avisar de la cobertura parcial desde el system
+# prompt: con seis síntomas el modelo se abstenía 4 de cada 5 veces, de forma
+# no determinista. El aviso se movió al código, que es quien sabe con certeza
+# cuántos temas se buscaron.
+
+NOTA_PARCIAL = "solo busqué en mis fuentes sobre algunos"
+
+
+def test_dos_sintomas_se_responden_sin_aviso(preguntar):
+    r = preguntar("tengo dolor de cabeza y me duele la garganta")
+    assert ABSTENCION not in r["answer"], r["answer"][:200]
+    assert r["citations"]
+    assert len(r["search_query"].split(" | ")) == 2, r["search_query"]
+    assert NOTA_PARCIAL not in r["answer"], "con 2 temas no se truncó nada"
+
+
+def test_muchos_sintomas_responden_y_avisan_la_cobertura(preguntar):
+    """Seis síntomas: se buscan tres y hay que decir que faltaron los otros."""
+    r = preguntar("tengo dolor de cabeza, tos, fiebre, dolor de garganta, "
+                  "me cuesta respirar y dolor muscular")
+    assert ABSTENCION not in r["answer"], r["answer"][:200]
+    assert r["citations"]
+    assert len(r["search_query"].split(" | ")) == 3, r["search_query"]
+    assert NOTA_PARCIAL in r["answer"], "debe avisar que no cubrió todo"

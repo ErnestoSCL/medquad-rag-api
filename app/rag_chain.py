@@ -199,7 +199,21 @@ def _rerank(question, scored):
 #   "headache causes"                   -> 0.596, trae Headache
 #   "sore throat causes"                -> 0.663, trae Sore Throat
 # El corpus tenía los dos temas; el problema era mezclarlos en la consulta.
+# Cuántas búsquedas se lanzan como máximo. Cada una cuesta una llamada a
+# pgvector, así que el tope acota latencia y tokens del reranker.
 MAX_CONSULTAS = 3
+# Cuantos temas puede listar el reformulador. Es mayor que MAX_CONSULTAS a
+# propósito: los que sobran no se buscan, pero saber que existen es lo que
+# permite avisarle al usuario que su consulta no se cubrió entera.
+MAX_TEMAS = 8
+# Aviso de cobertura parcial. Se agrega desde el código y no desde el prompt:
+# cuántos temas se buscaron es un hecho que el programa conoce con certeza y el
+# modelo no. Pedírselo al prompt volvía inestable la respuesta a consultas de
+# muchos temas (con seis síntomas se abstenía 4 de cada 5 veces).
+NOTA_COBERTURA_PARCIAL = (
+    "Mencionaste varios temas y solo busqué en mis fuentes sobre algunos de ellos. "
+    "Pregúntame por los demás por separado para poder responderte con respaldo."
+)
 REFORMULATE_PROMPT = (
     "You rewrite a user's medical question into a standalone English search "
     "query for a document retrieval system.\n"
@@ -222,7 +236,8 @@ REFORMULATE_PROMPT = (
     "- If the user mentions SEVERAL symptoms or conditions, output ONE QUERY "
     "PER TOPIC instead of merging them: \"tengo dolor de cabeza y me duele la "
     "garganta\" becomes [\"headache causes\", \"sore throat causes\"]. "
-    f"At most {MAX_CONSULTAS}.\n"
+    f"List EVERY distinct topic the user mentions, up to {MAX_TEMAS}. "
+    "Do not merge two symptoms into one query and do not drop any.\n"
     "Reply with ONLY a JSON array of strings, e.g. [\"asthma treatment\"]."
 )
 
@@ -257,7 +272,7 @@ def reformular(pregunta: str, historial=None) -> list[str]:
         if isinstance(consultas, str):          # el modelo devolvió texto suelto
             consultas = [consultas]
         limpias = [c.strip() for c in consultas
-                   if isinstance(c, str) and c.strip()][:MAX_CONSULTAS]
+                   if isinstance(c, str) and c.strip()][:MAX_TEMAS]
         return limpias or [pregunta]
 
     except Exception as exc:
@@ -289,6 +304,9 @@ SYSTEM_PROMPT = (
     "pero SÍ tenés que explicar lo que el contexto dice sobre esa enfermedad "
     "—síntomas, causas, factores de riesgo, herencia— y aclarar que para un "
     "diagnóstico hay que consultar a un profesional.\n"
+    "\"No lo sé\" se reserva para cuando el contexto no habla de NINGUNO de los "
+    "temas preguntados. Si el usuario menciona varios síntomas y el contexto "
+    "cubre aunque sea uno, explicá ese.\n"
     "Si el contexto no contiene la respuesta, responde exactamente: No lo sé."
 )
 
@@ -308,7 +326,9 @@ def answer_question(question: str, historial=None):
     """
     # La búsqueda va en inglés (el corpus lo está); la generación responde en
     # español usando la pregunta original del usuario.
-    consultas = reformular(question, historial)
+    temas = reformular(question, historial)
+    consultas = temas[:MAX_CONSULTAS]
+    omitidos = len(temas) - len(consultas)
     consulta = " | ".join(consultas)
 
     k = RERANK_CANDIDATES if RERANK_ENABLED else TOP_K
@@ -370,5 +390,11 @@ def answer_question(question: str, historial=None):
         {"role": "user", "content": f"Contexto:\n{context}\n\nPregunta:\n{question}"}
     )
 
-    response = llm.invoke(mensajes)
-    return response.content, docs, consulta
+    respuesta = llm.invoke(mensajes).content
+
+    # Si quedaron temas sin buscar, decirlo. Va despues del modelo y no
+    # dentro del prompt para que sea determinístico.
+    if omitidos:
+        respuesta = respuesta.rstrip() + "\n\n" + NOTA_COBERTURA_PARCIAL
+
+    return respuesta, docs, consulta
