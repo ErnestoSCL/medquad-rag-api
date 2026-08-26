@@ -44,18 +44,21 @@ SALUDOS = re.compile(
 # escribe rápido y con errores. El caso que motivó esto fue "hola en que me
 # pedes ayudar" — con una lista cerrada de verbos, ese typo se escapaba y el
 # usuario recibía "No hay información suficiente".
+# Cada alternativa arranca con \b. Sin ese límite, `qu[ée]\s+haces?` —pensado
+# para "¿qué haces?"— disparaba dentro de "porque hace unos días" y una consulta
+# médica larga terminaba recibiendo el mensaje de bienvenida.
 META = re.compile(
-    r'(en\s+qu[ée]\s+(me\s+)?(\S+\s+)?ayudar|'
-    r'(pod[ée]s|puedes|pedes|podes)\s+ayudar|'
-    r'(qu[ée]|c[óo]mo)\s+(pod[ée]s|puedes|pedes|podes|sab[ée]s|haces?|funcionas?)|'
-    r'para\s+qu[ée]\s+(sirves?|est[áa]s)|'
-    r'qui[ée]n\s+(sos|eres)|qu[ée]\s+(sos|eres)|'
-    r'c[óo]mo\s+(te\s+)?(uso|utilizo|funciona)|'
-    r'qu[ée]\s+(tipo\s+de\s+)?(preguntas?|consultas?)\s+(puedo|te\s+puedo)|'
-    r'(ay[úu]dame|necesito\s+ayuda)|'
-    r'de\s+d[óo]nde\s+(sacas|obtienes)\s+(la\s+)?informaci[óo]n|'
-    r'qu[ée]\s+es\s+(esto|este\s+chat|medquad)|'
-    r'what\s+can\s+you\s+do|who\s+are\s+you|how\s+do\s+you\s+work)',
+    r'(\ben\s+qu[ée]\s+(me\s+)?(\S+\s+)?ayudar|'
+    r'\b(pod[ée]s|puedes|pedes|podes)\s+ayudar|'
+    r'\b(qu[ée]|c[óo]mo)\s+(pod[ée]s|puedes|pedes|podes|sab[ée]s|haces|funcionas?)\b|'
+    r'\bpara\s+qu[ée]\s+(sirves?|est[áa]s)\b|'
+    r'\bqui[ée]n\s+(sos|eres)\b|\bqu[ée]\s+(sos|eres)\b|'
+    r'\bc[óo]mo\s+(te\s+)?(uso|utilizo|funciona)\b|'
+    r'\bqu[ée]\s+(tipo\s+de\s+)?(preguntas?|consultas?)\s+(puedo|te\s+puedo)\b|'
+    r'\b(ay[úu]dame|necesito\s+ayuda)\b|'
+    r'\bde\s+d[óo]nde\s+(sacas|obtienes)\s+(la\s+)?informaci[óo]n|'
+    r'\bqu[ée]\s+es\s+(esto|este\s+chat|medquad)\b|'
+    r'\bwhat\s+can\s+you\s+do\b|\bwho\s+are\s+you\b|\bhow\s+do\s+you\s+work\b)',
     flags=re.IGNORECASE,
 )
 
@@ -87,6 +90,13 @@ def es_conversacional(mensaje: str) -> bool:
     # Para los saludos: se recortan y se mira si queda algo con sustancia.
     resto = SALUDOS.sub(" ", texto)
     resto = re.sub(r'\s{2,}', " ", resto).strip()
+
+    # Si no había ningún saludo que recortar, el mensaje es una consulta, por
+    # corta que sea. Antes el umbral de longitud se aplicaba igual y "asma",
+    # "diabetes" o "anemia" —consultas perfectamente válidas— recibían el
+    # mensaje de bienvenida en lugar de una respuesta.
+    if resto == texto:
+        return False
 
     if _RESIDUO.match(resto):
         return True
