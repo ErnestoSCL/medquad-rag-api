@@ -190,6 +190,16 @@ def _rerank(question, scored):
 # la abstención. Es el mismo problema que ya se había corregido en el generador,
 # reaparecido una etapa antes. Una consulta a un índice documental tiene que ser
 # impersonal; la respuesta sí se redacta contra la pregunta original.
+#
+# La regla de UNA CONSULTA POR TEMA resuelve otro fallo: al juntar varios
+# síntomas en un solo vector, el resultado no se parece a ninguno de los
+# documentos individuales y queda flotando entre ellos. Medido con "tengo dolor
+# de cabeza y me duele la garganta":
+#   "headache and sore throat symptoms" -> 0.477, trae Hypothyroidism y SUNCT
+#   "headache causes"                   -> 0.596, trae Headache
+#   "sore throat causes"                -> 0.663, trae Sore Throat
+# El corpus tenía los dos temas; el problema era mezclarlos en la consulta.
+MAX_CONSULTAS = 3
 REFORMULATE_PROMPT = (
     "You rewrite a user's medical question into a standalone English search "
     "query for a document retrieval system.\n"
@@ -207,19 +217,26 @@ REFORMULATE_PROMPT = (
     "- A question about whether a specific person will get or has a disease is "
     "really a question about that disease: rewrite it as a query about its "
     "causes, risk factors, heredity or symptoms.\n"
-    "- Keep it a question or a short noun phrase. Do not answer it.\n"
+    "- Keep each query a question or a short noun phrase. Do not answer it.\n"
     "- Do not add information that the user did not provide.\n"
-    "Reply with ONLY the rewritten query."
+    "- If the user mentions SEVERAL symptoms or conditions, output ONE QUERY "
+    "PER TOPIC instead of merging them: \"tengo dolor de cabeza y me duele la "
+    "garganta\" becomes [\"headache causes\", \"sore throat causes\"]. "
+    f"At most {MAX_CONSULTAS}.\n"
+    "Reply with ONLY a JSON array of strings, e.g. [\"asthma treatment\"]."
 )
 
 
-def reformular(pregunta: str, historial=None) -> str:
+def reformular(pregunta: str, historial=None) -> list[str]:
     """
     Convierte la pregunta del usuario (normalmente en español, posiblemente
-    incompleta) en una consulta de búsqueda en inglés autocontenida.
+    incompleta) en una o varias consultas de búsqueda en inglés autocontenidas.
 
-    Si la llamada falla se devuelve la pregunta original: buscar en español da
-    peor recuperación, pero es mejor que no responder.
+    Devuelve una lista: normalmente con un elemento, y con más cuando el usuario
+    menciona varios síntomas (ver MAX_CONSULTAS y la nota del prompt).
+
+    Si la llamada falla se busca con la pregunta original: en español recupera
+    peor, pero es mejor que no responder.
     """
     contexto = formatear_para_prompt(historial or [])
     entrada = (
@@ -232,10 +249,20 @@ def reformular(pregunta: str, historial=None) -> str:
             {"role": "system", "content": REFORMULATE_PROMPT},
             {"role": "user", "content": entrada},
         ]).content.strip()
-        return salida or pregunta
+
+        if salida.startswith("```"):
+            salida = salida.strip("`").removeprefix("json").strip()
+
+        consultas = json.loads(salida)
+        if isinstance(consultas, str):          # el modelo devolvió texto suelto
+            consultas = [consultas]
+        limpias = [c.strip() for c in consultas
+                   if isinstance(c, str) and c.strip()][:MAX_CONSULTAS]
+        return limpias or [pregunta]
+
     except Exception as exc:
         logger.warning("reformulación fallida (%s), se busca con la pregunta original", exc)
-        return pregunta
+        return [pregunta]
 
 
 # ------------------------------------------------------------------
@@ -281,16 +308,31 @@ def answer_question(question: str, historial=None):
     """
     # La búsqueda va en inglés (el corpus lo está); la generación responde en
     # español usando la pregunta original del usuario.
-    consulta = reformular(question, historial)
+    consultas = reformular(question, historial)
+    consulta = " | ".join(consultas)
 
     k = RERANK_CANDIDATES if RERANK_ENABLED else TOP_K
-    scored = vector_store.similarity_search_with_relevance_scores(consulta, k=k)
 
-    # Corte relativo primero: descarta lo que está claramente lejos del mejor
-    # resultado, para no gastar tokens del reranker en candidatos malos.
-    if scored:
-        best = scored[0][1]
-        scored = [(doc, s) for doc, s in scored if s >= RELATIVE_CUTOFF * best]
+    # Una búsqueda por consulta, con su propio corte relativo, y después se
+    # fusionan. El corte va por consulta y no sobre el conjunto porque las
+    # similitudes de búsquedas distintas no son comparables: un tema que puntúa
+    # 0.66 hundiría a otro que puntúa 0.59 siendo los dos correctos.
+    encontrados = {}
+    for c in consultas:
+        parciales = vector_store.similarity_search_with_relevance_scores(c, k=k)
+        if not parciales:
+            continue
+        best = parciales[0][1]
+        for doc, s in parciales:
+            if s < RELATIVE_CUTOFF * best:
+                continue
+            # Un chunk puede salir en varias consultas: se conserva su mejor
+            # puntaje, para no penalizarlo por haber quedado bajo en una de ellas.
+            previo = encontrados.get(doc.page_content)
+            if previo is None or s > previo[1]:
+                encontrados[doc.page_content] = (doc, s)
+
+    scored = sorted(encontrados.values(), key=lambda par: -par[1])
 
     # El reranker recibe la consulta en inglés, no la pregunta en español: opera
     # sobre chunks en inglés y compararlos contra texto español lo empeoraría.

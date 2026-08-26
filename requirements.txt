@@ -6,3 +6,7 @@ langchain-openai
 langchain-community
 supabase
 pydantic
+# app/config.py lo importa directamente. Hoy llegaría igual como dependencia
+# indirecta de uvicorn[standard], pero de esa forma el arranque queda a merced
+# de que ese extra siga incluyéndolo.
+python-dotenv
