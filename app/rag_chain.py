@@ -386,8 +386,26 @@ def answer_question(question: str, historial=None):
     context = "\n\n".join(d.page_content for d in docs)
     mensajes = [{"role": "system", "content": SYSTEM_PROMPT}]
     mensajes += historial or []
+    # Los temas que no se buscaron se nombran explícitamente. Sin esto el
+    # modelo ve que el usuario preguntó por seis síntomas, nota que el
+    # contexto cubre tres, y completa los otros de su propio conocimiento:
+    # medido con un juez de fidelidad, 2 de 6 afirmaciones sin respaldo con
+    # seis temas y 1 de 4 con cuatro, contra 0 cuando no se trunca nada.
+    # Se le da la lista concreta y no una instrucción genérica, porque la
+    # genérica ya había resultado inestable (ver NOTA_COBERTURA_PARCIAL).
+    aviso = ""
+    if omitidos:
+        aviso = (
+            "\n\n[Nota del sistema, no la menciones ni la respondas] "
+            "El contexto NO cubre estos temas que el usuario mencionó: "
+            f"{', '.join(temas[MAX_CONSULTAS:])}. "
+            "No afirmes nada sobre ellos: respondé solo sobre lo que el "
+            "contexto sí cubre. Del resto ya se le avisa por separado."
+        )
+
     mensajes.append(
-        {"role": "user", "content": f"Contexto:\n{context}\n\nPregunta:\n{question}"}
+        {"role": "user",
+         "content": f"Contexto:\n{context}\n\nPregunta:\n{question}{aviso}"}
     )
 
     respuesta = llm.invoke(mensajes).content

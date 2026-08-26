@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import FastAPI
 import gradio as gr
 
@@ -19,6 +21,16 @@ from app.guardrails import (
     apply_clinical_guardrails,
     contains_toxicity,
     INSUFFICIENT_INFO_MSG,
+)
+
+logger = logging.getLogger(__name__)
+
+# Lo que ve el usuario si el turno se cae. Sin esto Gradio pinta un cartel
+# rojo que solo dice "Error", que no distingue un fallo del backend de una
+# desconexión del navegador y no le dice a nadie qué hacer.
+ERROR_TURNO = (
+    "No pude completar la consulta por un problema técnico. "
+    "Volvé a intentarlo en unos segundos."
 )
 
 app = FastAPI(title="Asistente Médico RAG API")
@@ -128,16 +140,27 @@ def _responder(mensaje, historial_ui, user_id, conversation_id):
     if not conversation_id:
         conversation_id = crear_conversacion(user_id)
 
-    final, cruda, docs, _, limpia = _resolver(mensaje, conversation_id)
-
-    respuesta = final + fuentes_html([d.metadata for d in docs])
+    try:
+        final, cruda, docs, _, limpia = _resolver(mensaje, conversation_id)
+        respuesta = final + fuentes_html([d.metadata for d in docs])
+    except Exception:
+        # El turno se muestra igual, con el error en la burbuja: perder lo
+        # que el usuario escribió y dejarlo frente a un cartel rojo es peor.
+        logger.exception("el turno falló para la conversación %s", conversation_id)
+        historial_ui.append({"role": "user", "content": mensaje})
+        historial_ui.append({"role": "assistant", "content": ERROR_TURNO})
+        return "", historial_ui, conversation_id
 
     historial_ui.append({"role": "user", "content": mensaje})
     historial_ui.append({"role": "assistant", "content": respuesta})
 
     if cruda is not None:
-        guardar_interaccion(user_id, conversation_id, limpia, cruda)
-        titular_conversacion(conversation_id, mensaje)
+        try:
+            guardar_interaccion(user_id, conversation_id, limpia, cruda)
+            titular_conversacion(conversation_id, mensaje)
+        except Exception:
+            # Persistir es secundario: la respuesta ya está en pantalla.
+            logger.exception("no se pudo guardar la interacción")
 
     return "", historial_ui, conversation_id
 
