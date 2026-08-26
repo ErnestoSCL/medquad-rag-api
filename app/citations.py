@@ -106,7 +106,7 @@ def fuentes_html(metadatos: list[dict]) -> str:
         return ""
 
     filas = []
-    for m in metadatos:
+    for indice, m in enumerate(metadatos, start=1):
         foco = m.get("question_focus") or "Fuente"
         fuente = m.get("document_source") or ""
         url, _ = url_de_cita(m.get("document_url") or "", foco)
@@ -117,19 +117,22 @@ def fuentes_html(metadatos: list[dict]) -> str:
             partes.append(f"fragmento {m['chunk_id'] + 1} de {n_chunks}")
         meta = " · ".join(partes)
 
+        descripcion = foco + (" · " + meta if meta else "")
+        etiqueta = ' aria-label="' + descripcion + '" title="' + descripcion + '"'
+        marcador = '<span class="fuente-indice">' + str(indice) + '</span>'
         if url:
-            enlace = '<a href="' + url + '" target="_blank" rel="noopener">' + foco + "</a>"
+            filas.append(
+                '<a class="fuente" href="' + url + '" target="_blank" '
+                'rel="noopener"' + etiqueta + '>' + marcador + '</a>'
+            )
         else:
-            enlace = foco
-
-        # Sin f-strings anidadas con comillas escapadas: la imagen corre
-        # Python 3.11, donde eso es un SyntaxError (se permite recién en 3.12).
-        sufijo = ' <span class="fuente-meta">· ' + meta + "</span>" if meta else ""
-        filas.append('<div class="fuente">' + enlace + sufijo + "</div>")
+            filas.append('<span class="fuente"' + etiqueta + '>' + marcador + '</span>')
 
     return (
         '\n\n<div class="fuentes">'
         '<div class="fuentes-titulo">Fuentes</div>'
+        '<div class="fuentes-list">'
         + "".join(filas)
+        + '</div>'
         + "</div>"
     )
