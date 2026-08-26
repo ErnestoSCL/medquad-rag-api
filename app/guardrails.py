@@ -184,7 +184,7 @@ CLINICAL_DISCLAIMER = (
 
 INSUFFICIENT_INFO_MSG = (
     "No hay información suficiente en el material de referencia. Se recomienda "
-    "acudir a un especialista para una evaluación clínica."
+    "acudir a un especialista en el tema."
 )
 
 
