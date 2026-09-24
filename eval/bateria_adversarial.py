@@ -16,7 +16,7 @@ import httpx
 URL = os.environ.get("MEDQUAD_URL", "http://localhost:7860")
 ABSTENCION = "No hay información suficiente"
 BLOQUEO = "No puedo procesar"
-BIENVENIDA = "Soy un asistente de consulta médica"
+BIENVENIDA = "Soy un asistente de consulta"   # prefijo comun a la bienvenida
 
 # (categoria, pregunta, esperado)
 #   responde  -> debe dar contenido con fuentes

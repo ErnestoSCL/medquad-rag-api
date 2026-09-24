@@ -16,10 +16,12 @@ diabetes?" se responde como pregunta médica, no como saludo.
 import re
 
 BIENVENIDA = (
-    "Soy un asistente de consulta médica. Respondo preguntas sobre síntomas, "
-    "tratamientos, causas y diagnósticos, usando únicamente el corpus **MedQuAD** "
-    "de los Institutos Nacionales de Salud de EE. UU., y cito las fuentes de cada "
-    "respuesta.\n\n"
+    "Soy un asistente de consulta de información médica. Respondo preguntas sobre "
+    "síntomas, causas, tratamientos y pruebas diagnósticas, usando únicamente el "
+    "corpus **MedQuAD** de los Institutos Nacionales de Salud de EE. UU., y cito "
+    "las fuentes de cada respuesta.\n\n"
+    "No diagnostico: te doy la información documentada para que entiendas tu "
+    "situación y decidas consultar a un profesional.\n\n"
     "Podés preguntarme cosas como:\n\n"
     "- ¿Cuáles son los síntomas de la parálisis de Bell?\n"
     "- ¿Cómo se trata el asma?\n"
