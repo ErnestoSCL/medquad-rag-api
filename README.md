@@ -193,10 +193,11 @@ y ejecutarlo sin asistencia adicional:
 
 ## Notebooks — la fase de investigación
 
-En [`notebooks/`](notebooks/) está el trabajo previo que llevó a esta arquitectura. Se conservan tal como se ejecutaron: son la evidencia de que la configuración desplegada se eligió comparando alternativas, no por intuición.
+En [`notebooks/`](notebooks/) está el trabajo previo que llevó a esta arquitectura. El notebook 00 es la versión consolidada y con salidas; los cinco restantes son la misma investigación separada por etapa, sin salidas. Se conservan tal como se ejecutaron: son la evidencia de que la configuración desplegada se eligió comparando alternativas, no por intuición.
 
 | Notebook | Contenido |
 |---|---|
+| [00 — Notebook consolidado](notebooks/00_notebook_consolidado.ipynb) | Los cinco notebooks en uno solo, **con las salidas de la corrida guardadas**: limpieza paso a paso, las 12 combinaciones de chunking × retrieval con Recall@5, Precision@5 y grounding, y la evaluación RAGAS. Es la evidencia de dónde sale cada número del informe. |
 | [01 — Data preparation and cleaning](notebooks/01_data_preparation_and_cleaning.ipynb) | Carga y exploración de MedQuAD, diagnóstico y limpieza del dataset |
 | [02 — Chunking, embeddings and indexing](notebooks/02_chunking_embeddings_and_indexing.ipynb) | Comparación de tamaños de chunk, generación de embeddings, indexación con FAISS y BM25 |
 | [03 — RAG inference pipeline](notebooks/03_rag_inference_pipeline.ipynb) | Pipeline completo, citación obligatoria, grounding y los cuatro guardrails |
